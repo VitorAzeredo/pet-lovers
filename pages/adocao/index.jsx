@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import Navbar from "../../shared/components/Navbar";
+import { auth } from "../../core/config/firebase/client";
 
 export async function getServerSideProps() {
 	const res = await fetch("http://localhost:3000/api/busca-pets/lista-pets");
@@ -15,9 +16,21 @@ export default function Adoption({ data }) {
 	const [show, setShow] = useState(false);
 	const [pet, setPet] = useState({});
 	const [activePhoto, setActivePhoto] = useState(0);
+	const [isSignin, setIsSignin] = useState(false);
 
 	const [lottie, setLottie] = useState(null);
 	const ref = useRef(null);
+
+	useEffect(() => {
+		return auth.onAuthStateChanged(user => {
+			if (user) {
+				setIsSignin(true);
+			} else {
+				setIsSignin(false);
+			}
+		}
+		)
+	}, []);
 
 	useEffect(() => {
 		import("lottie-web").then((Lottie) => setLottie(Lottie.default));
@@ -51,8 +64,8 @@ export default function Adoption({ data }) {
 	};
 
 	const handleClose = () => setShow(false);
-	const handleShow = (pet) => {
-		setPet(pet);
+	const handleShow = (petParams) => {
+		setPet(petParams);
 		setShow(true);
 	};
 
@@ -76,45 +89,45 @@ export default function Adoption({ data }) {
 						<div className="col-12 text-end">
 							<p className="">
 								{" "}
-								<Link href="/adocao/registrar" passHref>
+								{isSignin ? (<Link href="/adocao/registrar" passHref>
 									<button
 										type="button"
 										className="btn btn-dark"
 									>
 										Você teria um amigo para doar?
 									</button>
-								</Link>
+								</Link>) : null}
 							</p>
 						</div>
 					</div>
 					{data?.length > 0 && (
 						<div className="row mt-4">
-							{data.map((pet) => (
-								<div className="col-sm-3 mb-3" key={pet.petId}>
+							{data.map((petMapped) => (
+								<div className="col-sm-3 mb-3" key={petMapped.petId}>
 									<div className="card shadow">
 										<div className="card-body">
 											<h5 className="card-title">
-												{pet.name}
+												{petMapped.name}
 											</h5>
 											<Image
 												onClick={() =>
-													handleShow(pet)
+													handleShow(petMapped)
 												}
 												layout="responsive"
 												className="rounded cursorP img-fluid"
-												src={pet.files[0]}
+												src={petMapped.files[0]}
 												alt="Vercel Logo"
 												priority={true}
 												width={300}
 												height={250}
 											/>
 											<p className="card-text mt-2">
-												{pet.description}
+												{petMapped.description}
 											</p>
 											<div className="d-grid">
 												<button
 													onClick={() =>
-														handleShow(pet)
+														handleShow(petMapped)
 													}
 													type="button"
 													className="btn btn-info"
