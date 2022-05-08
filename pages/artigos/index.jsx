@@ -8,9 +8,9 @@ export default function About() {
 				<title>Artigos</title>
 			</Head>
 			<main class="flex-shrink-0">
-				<section class="py-3 mb-3">
-                <div className="container px-3">
+				<section class="py-4 mb-3 ps-5 pe-5">
                 <Navbar />
+                <div className="container px-2">
                     <h1 class="row justify-content-center py-4">Artigos que talvés você goste</h1>
                     <div class="card border-0 shadow rounded-3 overflow-hidden">
                         <div class="card-body p-0">
@@ -27,7 +27,7 @@ export default function About() {
                                 </div>
                                 	<div class="col-lg-6 col-xl-7">
                                         <div class="bg-featured-blog">
-                                            <img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/veterinario.png" alt="..." />
+                                            <img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/veterinario.webp" alt="..." />
                                         </div>
                                     </div>
                             </div>
@@ -41,21 +41,24 @@ export default function About() {
                         <div class="col-xl-8">
                             <h2 class="fw-bolder fs-5 mb-4">Notícias</h2>
                             <div class="mb-4">
-                                <div class="small text-muted">May 12, 2022</div>
-                                <a class="link-dark" href="#!"><h3>Start Bootstrap releases Bootstrap 5 updates for templates and themes</h3></a>
+                                <div class="small text-muted">29 de Março, 2022 - 11:20</div>
+                                <a class="link-dark" href="#!"><h3>Entenda a tendência probiótica na alimentação animal</h3></a>
                             </div>
                             <div class="mb-5">
-                                <div class="small text-muted">May 5, 2022</div>
-                                <a class="link-dark" href="#!"><h3>Bootstrap 5 has officially landed</h3></a>
+                                <div class="small text-muted">22 de Abril, 2022 - 12:38</div>
+                                <a class="link-dark" href="#!"><h3>O que pode ou não pode nos primeiros meses do filhote.</h3></a>
                             </div>
                             <div class="mb-5">
-                                <div class="small text-muted">Apr 21, 2022</div>
-                                <a class="link-dark" href="#!"><h3>This is another news article headline, but this one is a little bit longer</h3></a>
+                                <div class="small text-muted">28 de Janeiro, 2022 - 14:11</div>
+                                <a class="link-dark" href="#!"><h3>Calendário de vacinas - saiba a importância de imunizar o seu pet.</h3></a>
                             </div>
                             <div class="text-end mb-5 mb-xl-0">
-                                <a class="text-decoration-none" href="#!">
-                                    More news
-                                    <i class="bi bi-arrow-right"></i>
+                                <a href="#!">
+                                    <button
+								        type="button"
+								        className="btn btn-info">
+							            Mais Artigos
+							        </button>
                                 </a>
                             </div>
                         </div>
@@ -73,10 +76,10 @@ export default function About() {
                                                 <a href="#!">contato@petslover.com.br</a>
                                             </p>
                                             <div class="h6 fw-bolder">Nós Siga nas Rede Sociais</div>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-linkedin"></i></a>
-                                            <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-youtube"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://twitter.com/"><i class="bi-twitter"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://pt-br.facebook.com/"><i class="bi-facebook"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://www.linkedin.com/"><i class="bi-linkedin"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://www.youtube.com/"><i class="bi-youtube"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +94,7 @@ export default function About() {
                     <div class="row gx-5">
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="/assets/artigos_destaque/ovo_pascoa.png" alt="https://www.specialdog.com.br/portalpet/cuidados-com-os-pets-na-pascoa" />
+                                <img class="card-img-top" src="/assets/artigos_destaque/ovo_pascoa.png" alt="pets-na-pascoa"/>
                                 <div class="card-body p-4">
                                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">Novidades</div>
                                     <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3">Cuidados com os pets na Páscoa</div></a>
