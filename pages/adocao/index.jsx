@@ -97,6 +97,9 @@ export default function Adoption({ data }) {
 												{pet.name}
 											</h5>
 											<Image
+												onClick={() =>
+													handleShow(pet)
+												}
 												layout="responsive"
 												className="rounded cursorP img-fluid"
 												src={pet.files[0]}
@@ -129,7 +132,7 @@ export default function Adoption({ data }) {
 					{!data?.length && (
 						<div className="row text-center mt-4">
 							<h2>
-								Por enquanto não encontramos amigos para doar
+								Por enquanto não encontramos amigos para adotar
 							</h2>
 							<div
 								style={{ maxWidth: 700 }}
@@ -203,7 +206,8 @@ export default function Adoption({ data }) {
 						</div>
 						<div>
 							<h4 className="m-0">Contatos para adoção</h4>
-							<p>{pet.history}</p>
+							<p>{pet.ownerName}</p>
+							<p>{pet.ownerEmail}</p>
 						</div>
 						{pet.adopted ? (
 							<div>
@@ -227,10 +231,10 @@ export default function Adoption({ data }) {
 
 					<Modal.Footer>
 						<Button variant="secondary" onClick={handleClose}>
-							Close
+							Fechar
 						</Button>
 						<Button variant="primary" onClick={handleClose}>
-							Save Changes
+							Salvar
 						</Button>
 					</Modal.Footer>
 				</Modal>

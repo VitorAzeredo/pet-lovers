@@ -71,7 +71,7 @@ const handler = nc({
 			fileNames.push(file.originalFilename);
 			await admin
 				.storage()
-				.bucket("gs://pet-lovers-f7d3a.appspot.com")
+				.bucket("gs://pets-lovers-a2f10.appspot.com")
 				.upload(file.filepath, {
 					destination: `${uid}/${doc.id}/${file.originalFilename}`,
 					contentType: file.mimetype,

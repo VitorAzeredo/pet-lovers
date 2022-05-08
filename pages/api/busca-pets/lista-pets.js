@@ -22,7 +22,7 @@ const handler = nc({
 					pet.petId = doc.id;
 					pet.files = pet.files.map(reference => {
 						const referenceSplitString = reference.split('/');
-						return `https://firebasestorage.googleapis.com/v0/b/pet-lovers-f7d3a.appspot.com/o/${referenceSplitString[0]}%2F${referenceSplitString[1]}%2F${referenceSplitString[2]}?alt=media`
+						return `https://firebasestorage.googleapis.com/v0/b/pets-lovers-a2f10.appspot.com/o/${referenceSplitString[0]}%2F${referenceSplitString[1]}%2F${referenceSplitString[2]}?alt=media`
 					})		
 					pets.push(pet);
 				});

@@ -8,15 +8,15 @@ import { getStorage } from "firebase/storage";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDuZtkT49PaQqpJUp8sqeHhAqQDvXcTGL4",
-  authDomain: "pet-lovers-f7d3a.firebaseapp.com",
-  projectId: "pet-lovers-f7d3a",
-  storageBucket: "pet-lovers-f7d3a.appspot.com",
-  messagingSenderId: "134412710166",
-  appId: "1:134412710166:web:ef17684d90255866dae037",
-  measurementId: "G-3FPKDNN91T"
+  apiKey: "AIzaSyA7A3YwccAPTBMZh84xoujTqwj8dpPoFj4",
+  authDomain: "pets-lovers-a2f10.firebaseapp.com",
+  projectId: "pets-lovers-a2f10",
+  storageBucket: "pets-lovers-a2f10.appspot.com",
+  messagingSenderId: "1096079931736",
+  appId: "1:1096079931736:web:34b45388be1ec74fb48d2d",
+  measurementId: "G-RJJS8PG22Y"
 };
-const app = initializeApp(firebaseConfig, 'pet-lovers');
+const app = initializeApp(firebaseConfig, 'pets-lovers');
 const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);

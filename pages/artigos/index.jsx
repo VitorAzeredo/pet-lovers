@@ -8,7 +8,7 @@ export default function About() {
 				<title>Artigos</title>
 			</Head>
 			<main class="flex-shrink-0">
-				<section class="py-3">
+				<section class="py-3 mb-3">
                 <div className="container px-3">
                 <Navbar />
                     <h1 class="row justify-content-center py-4">Artigos que talvés você goste</h1>
@@ -17,25 +17,17 @@ export default function About() {
                             <div class="row gx-0">
                                 <div class="col-lg-6 col-xl-5 py-lg-5">
                                    <div class="p-4 p-md-5">
-                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Novidades</div>
-                                        <div class="h2 fw-bolder">Article heading goes here</div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique delectus ab doloremque, qui doloribus ea officiis...</p>
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-3">Mais lido</div>
+                                        <div class="h2 fw-bolder">O que perguntar ao veterinário na 1ª consulta do seu pet</div>
+                                        <p>Cuidar de um filhote é uma das melhores experiências que podemos ter. Para que esse pequeno pet tenha uma saúde ótima ao longo da vida, é importante realizar a primeira consulta com um médico-veterinário de confiança. Confira algumas perguntas que você pode fazer nessa ocasião</p>
                                         <a href="#!">
                                             Veja o Artigo Completo...
-                                            {/*
-                                            <button
-								                type="button"
-								                lassName="btn btn-info"
-							                >
-							                    
-                                            </button>
-                                            */}
                                         </a>
                                     </div>
                                 </div>
                                 	<div class="col-lg-6 col-xl-7">
                                         <div class="bg-featured-blog">
-                                            <img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/historia1.jpg" alt="..." />
+                                            <img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/veterinario.png" alt="..." />
                                         </div>
                                     </div>
                             </div>
