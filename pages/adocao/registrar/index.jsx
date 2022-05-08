@@ -29,14 +29,13 @@ const sendAnimalData = async (animalData) => {
 	}
 
 	const token = await auth.currentUser.getIdToken();
-	const response = await fetch("/api/registro-pet/envia-registro", {
+	return fetch("/api/registro-pet/envia-registro", {
 		method: "POST",
 		headers: {
 			Authorization: token,
 		},
 		body: formData,
 	});
-	return response;
 };
 export default function Donation() {
 	const {
@@ -79,7 +78,11 @@ export default function Donation() {
 
 	const onSubmit = async (data) => {
 		setLoad(true);
-		await sendAnimalData(data);
+		try {
+			await sendAnimalData(data);
+		} catch (error) {
+			setLoad(false);
+		}
 		router.push("/adocao");
 	};
 
@@ -288,14 +291,19 @@ export default function Donation() {
 											type="file"
 											id="inputFiles"
 											multiple
-											// value={getValues("files")}
 											{...register("files", {
-												required: true,
+												required: "Este campo é obrigatório",
+												validate: (value) => {
+													if (value.length < 2) {
+														return "Selecione pelo menos 2 arquivo";
+													}
+													return undefined;
+												},
 											})}
 										/>
 										{errors.files && (
 											<span className="text-danger">
-												Este campo é obrigatório
+												{errors.files.message}
 											</span>
 										)}
 									</div>
