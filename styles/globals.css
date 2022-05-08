@@ -1,0 +1,32 @@
+.customLink {
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.customLink:hover {
+	color: #0dcaf0;
+}
+
+.cursorP {
+	cursor: pointer;
+}
+
+.fullHeight {
+	height: 100vh;
+}
+
+.bgSignInDog {
+	background-image: url("/assets/dog-signin.webp");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.bgSignUpDog {
+	background-image: url("/assets/dog-signup.webp");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}

@@ -1,0 +1,11 @@
+.title {
+	font-size: 4em;
+	letter-spacing: 0em;
+}
+
+.bgPrincipalDog {
+	background-image: url("/assets/principal-dog.webp");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
