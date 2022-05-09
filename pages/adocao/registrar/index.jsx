@@ -121,15 +121,14 @@ export default function Donation() {
 					<div className="container mt-4">
 						<div className="row ">
 							<div
-								className={`${
-									load ? "d-block" : "d-none"
-								} min-vw-50`}
+								style={{ maxWidth: "700px" }}
+								className={`${load ? "d-block" : "d-none"
+									} min-vw-50 ms-auto me-auto`}
 								ref={ref}
 							></div>
 							<form
-								className={`${
-									!load ? "d-flex" : "d-none"
-								} row g-3 mt-0`}
+								className={`${!load ? "d-flex" : "d-none"
+									} row g-3 mt-0`}
 								onSubmit={handleSubmit(onSubmit)}
 							>
 								<div className="col-md-6">
