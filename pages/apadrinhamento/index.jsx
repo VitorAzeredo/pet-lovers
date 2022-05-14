@@ -7,7 +7,7 @@ import Navbar from "../../shared/components/Navbar";
 import { auth } from "../../core/config/firebase/client";
 
 export async function getServerSideProps() {
-	const res = await fetch("http://localhost:3000/api/busca-pets/lista-pets");
+	const res = await fetch("http://localhost:3000/api/busca-apadrinhado/lista-pets");
 	const data = await res.json();
 	return { props: { data } };
 }

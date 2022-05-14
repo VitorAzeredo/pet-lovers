@@ -30,7 +30,7 @@ const sendAnimalData = async (animalData) => {
 	}
 
 	const token = await auth.currentUser.getIdToken();
-	return fetch("/api/registro-pet/envia-registro", {
+	return fetch("/api/apadrinha-pet/envia-registro", {
 		method: "POST",
 		headers: {
 			Authorization: token,
@@ -84,7 +84,7 @@ export default function Donation() {
 		} catch (error) {
 			setLoad(false);
 		}
-		router.push("/adocao");
+		router.push("/apadrinhamento");
 	};
 
 	const readmultifiles = (files) => {

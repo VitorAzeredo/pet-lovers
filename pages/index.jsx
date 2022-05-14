@@ -22,7 +22,7 @@ export default function Home() {
 	};
 
 	return (
-		<div>
+		<div class="container-fluid">
 			<Head>
 				<title>Pet Lovers</title>
 				<meta
