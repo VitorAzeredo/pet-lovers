@@ -246,7 +246,7 @@ export default function Adoption({ data }) {
 						{/*<Button variant="secondary" onClick={handleClose}>
 							Fechar
 						</Button>*/}
-						<Button variant="primary" onClick={handleClose}>
+						<Button variant="info" onClick={handleClose}>
 							Fechar
 						</Button>
 					</Modal.Footer>

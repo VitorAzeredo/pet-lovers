@@ -86,7 +86,7 @@ export default function About() {
             	            <div class="col mb-5 mb-5 mb-xl-0">
             	                <div class="text-center">
             	                    <img class="img-fluid rounded-circle mb-4 px-4" src="/assets/eric.jpeg" alt="..." />
-            	                    <h5 class="fw-bolder">Eric Moreira</h5>
+            	                    <h5 class="fw-bolder">Erick Motta</h5>
             	                    <div class="fst-italic text-muted">Fundador e Dev</div>
             	                </div>
             	            </div>

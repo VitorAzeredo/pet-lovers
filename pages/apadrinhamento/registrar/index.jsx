@@ -62,7 +62,7 @@ export default function Donation() {
 				renderer: "svg",
 				loop: true,
 				autoplay: true,
-				path: "/assets/dog-walking.json",
+				path: "/assets/dog-carregando.json",
 			});
 
 			return () => animation.destroy();
@@ -106,7 +106,7 @@ export default function Donation() {
 	return (
 		<div>
 			<Head>
-				<title>Doação</title>
+				<title>Apadrinhamento</title>
 			</Head>
 			<main>
 				<div className="container-fluid pt-4 ps-5 pe-5 pb-4">
@@ -115,7 +115,7 @@ export default function Donation() {
 						<div className="col-12 text-center">
 							<h1>Divulgue seu bichinho</h1>
 							<p className="fs-5">
-								Para que ele possa ter um novo lar
+								Para que ele possa encontrar um padrinho
 							</p>
 						</div>
 					</div>
@@ -311,18 +311,18 @@ export default function Donation() {
 								<div className="col-12">
 									<button
 										type="submit"
-										className="btn btn-info"
+										className="btn btn-warning"
 									>
 										Enviar
 									</button>
-									<Link href="/adocao" passHref>
+                                    <Link href="/apadrinhamento" passHref>
 									<button
 										type="button"
 										className="btn btn-dark ms-2"
 									>
 										Voltar para Adoção
 									</button>
-									</Link>
+                                    </Link>
 								</div>
 							</form>
 						</div>
