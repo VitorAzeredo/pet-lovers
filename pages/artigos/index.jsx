@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Navbar from "../../shared/components/Navbar";
+import Link from "next/link";
 
 export default function About() {
 	return (
@@ -20,9 +21,14 @@ export default function About() {
                                         <div class="badge bg-primary bg-gradient rounded-pill mb-3">Mais lido</div>
                                         <div class="h2 fw-bolder">O que perguntar ao veterinário na 1ª consulta do seu pet</div>
                                         <p>Cuidar de um filhote é uma das melhores experiências que podemos ter. Para que esse pequeno pet tenha uma saúde ótima ao longo da vida, é importante realizar a primeira consulta com um médico-veterinário de confiança. Confira algumas perguntas que você pode fazer nessa ocasião</p>
-                                        <a href="#!">
-                                            Veja o Artigo Completo...
-                                        </a>
+                                            <Link href="/artigos/post" passHref>
+                                            <button
+								                type="button"
+								                className="btn btn-info"
+							                >
+							                    Ler o artigo completo
+							                </button>
+                                            </Link>
                                     </div>
                                 </div>
                                 	<div class="col-lg-6 col-xl-7">

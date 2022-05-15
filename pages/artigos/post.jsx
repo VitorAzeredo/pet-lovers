@@ -9,38 +9,57 @@ export default function About() {
 			</Head>
 			<main class="flex-shrink-0">
 
-            <section class="py-5">
-                <div class="container px-5 my-5">
+            <section class="py-4 mb-3 ps-5 pe-5">
                 <Navbar />
+                <div class="container px-5 my-5">
                     <div class="row gx-5">
                         <div class="col-lg-3">
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
-                                <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                <img class="img-fluid rounded-circle" src="/assets/artigos_destaque/ana_leticia.png" alt="..." />
                                 <div class="ms-3">
-                                    <div class="fw-bold">Valerie Luna</div>
-                                    <div class="text-muted">News, Business</div>
+                                    <div class="fw-bold">Ana Letícia Poletto</div>
+                                    <div class="text-muted mb-2">Médica - Veterinária</div>
+                                    <a href="/artigos">
+							    	    <button
+							    	    	type="button"
+							    	    	className="btn btn-info"
+							    	    >
+							    	    	Voltar aos artigos?
+							    	    </button>
+							        </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-9">
                             <article>
                                 <header class="mb-4">
-                                    <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
-                                    <div class="text-muted fst-italic mb-2">January 1, 2022</div>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                                    <h1 class="fw-bolder mb-1">O que perguntar ao veterinário na 1ª consulta do seu pet.</h1>
+                                    <div class="text-muted fst-italic mb-2">12 Novembro, 2021</div>
+                                    <a class="badge bg-dark text-decoration-none link-light me-1" href="#!">Médicina</a>
+                                    <a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a>
                                 </header>
-                                <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/veterinario.webp" alt="..." /></figure>
                                 <section class="mb-5">
-                                    <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
-                                    <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                                    <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                                    <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
-                                    <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
-                                    <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                                    <p class="fs-5 mb-4">Quando recebemos um novo filhote em casa, nossas rotinas mudam bastante. Precisamos adaptar o ambiente para que seja um lugar favorável ao crescimento e desenvolvimento saudável desse novo integrante da família. Junto aos cuidados, é de extrema importância que o filhote passe por uma consulta veterinária, que será de grande valia para que o tutor entenda melhor o animalzinho e possa oferecer todos os cuidados necessários para essa fase.</p>
+
+                                    <p class="fs-5 mb-4">Ao levar o filhote para a clínica veterinária, tenha em mãos algumas informações iniciais que ajudarão o médico-veterinário a ter um histórico do paciente para melhor avaliá-lo. É importante, por exemplo, que o tutor saiba a procedência do animal, ou seja, se esse filhote foi adotado de uma ONG ou comprado em algum canil/gatil, se já conviveu com outros animais, há quanto tempo está com o tutor, se existe algum documento relacionado a ele, se há conhecimento dos pais, se houve cruzamento entre parentes ou raças, se esse animal tomou algum vermífugo ou vacina, se mamou leite materno ou algum sucedâneo (substituto do leite) e se o filhote teve alguma alteração de comportamento ou doença.</p>
+
+                                    <p class="fs-5 mb-4">Fornecer essas informações iniciais sobre o filhote ajudarão o médico-veterinário a entender melhor seus primeiros dias de vida e ter conhecimento de alguns fatores que podem interferir na boa saúde do filhote.</p>
+                                    
+                                    <h2 class="fw-bolder mb-4 mt-5">1 &middot; VERMIFUGAÇÃO E VACINAÇÃO</h2>
+                                    <p class="fs-5 mb-4">Nessa primeira consulta é imprescindível que o tutor tire todas as dúvidas com o médico-veterinário sobre o protocolo de vacinação e vermifugação do pet enquanto filhote e ao longo da vida. Pergunte qual vermífugo pode ser administrado e de quanto em quanto tempo, quais vacinas o pet deverá tomar nesse primeiro momento e quais serão anuais.</p>
+                                    
                                 </section>
                             </article>
-                            <section>
+                                <a href="/artigos">
+							    	<button
+							    		type="button"
+							    		className="btn btn-info"
+							    	>
+							    		Voltar aos artigos?
+							    	</button>
+							    </a>
+                            {/*<section>
                                 <div class="card bg-light">
                                     <div class="card-body">
                                         <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
@@ -74,7 +93,7 @@ export default function About() {
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </section>*/}
                         </div>
                     </div>
                 </div>
