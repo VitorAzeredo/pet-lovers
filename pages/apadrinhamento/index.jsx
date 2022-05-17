@@ -103,7 +103,7 @@ export default function Adoption({ data }) {
 					{data?.length > 0 && (
 						<div className="row mt-4">
 							{data.map((petMapped) => (
-								<div className="col-sm-3 mb-3" key={petMapped.petId}>
+								<div className="col-sm-3 mb-3 p-sm-1 px-0" key={petMapped.petId}>
 									<div className="card shadow">
 										<div className="card-body">
 											<h5 className="card-title">

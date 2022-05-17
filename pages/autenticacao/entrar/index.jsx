@@ -67,26 +67,19 @@ export default function SignIn() {
 							<div className="row mt-5">
 								<div className="col-12">
 									<h1>É rápido. É fácil!</h1>
-									<small>Bem-vindo de volta</small>
+									<small class="ps-1">Bem-vindo de volta</small>
 								</div>
 							</div>
 							<div className="row mt-4">
 								<div className="col-12">
 									<div className="d-grid gap-2">
 										<button
-											className="btn btn-light"
+											className="btn btn-outline-info"
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											Entrar com Google
-											<i className="ms-2 bi bi-google text-danger"></i>
-										</button>
-										<button
-											className="btn btn-danger"
-											type="button"
-										>
-											Entrar com Facebook
-											<i className="ms-2 bi bi-facebook text-primary"></i>
+											<h7 class="text-dark fw-bold">Entrar com Google</h7>
+											<i className="ms-2 bi bi-google text-dark"></i>
 										</button>
 									</div>
 								</div>
@@ -94,13 +87,13 @@ export default function SignIn() {
 							<div className="row mt-3">
 								<div className="col-12">
 									<div className="text-center">
-										<p>ou</p>
+										<p class="fw-bold">ou</p>
 									</div>
 									<form
 										onSubmit={handleSubmit(onSubmit)}
 										className="row g-3"
 									>
-										<div className="col-12">
+										<div className="col-6">
 											<label
 												htmlFor="signin-email"
 												className="form-label"

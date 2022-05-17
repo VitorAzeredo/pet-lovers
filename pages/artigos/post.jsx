@@ -11,9 +11,9 @@ export default function About() {
 
             <section class="py-4 mb-3 ps-5 pe-5">
                 <Navbar />
-                <div class="container px-5 my-5">
+                <div class="container px-0 my-5">
                     <div class="row gx-5">
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 p-0">
                             <div class="d-flex align-items-center mt-lg-5 mb-4">
                                 <img class="img-fluid rounded-circle" src="/assets/artigos_destaque/ana_leticia.png" alt="..." />
                                 <div class="ms-3">
@@ -30,7 +30,7 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-9">
+                        <div class="col-lg-9 p-0">
                             <article>
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">O que perguntar ao veterinário na 1ª consulta do seu pet.</h1>
