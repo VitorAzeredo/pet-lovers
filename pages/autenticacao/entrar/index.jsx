@@ -64,14 +64,14 @@ export default function SignIn() {
 							</p>
 						</div>
 						<div className="col-6 col-6 pt-4 ps-5 pe-5 pb-4 fullHeight">
-							<div className="row mt-5">
-								<div className="col-12">
-									<h1>É rápido. É fácil!</h1>
+							<div className="row ms-5 mt-5 justify-content-center">
+								<div className="col-6 ms-5 mb-4">
+									<h1>É rápido, É fácil!</h1>
 									<small class="ps-1">Bem-vindo de volta</small>
 								</div>
 							</div>
-							<div className="row mt-4">
-								<div className="col-12">
+							<div className="row mt-4 justify-content-center">
+								<div className="col-8">
 									<div className="d-grid gap-2">
 										<button
 											className="btn btn-outline-info"
@@ -84,21 +84,21 @@ export default function SignIn() {
 									</div>
 								</div>
 							</div>
-							<div className="row mt-3">
+							<div className="row mt-4">
 								<div className="col-12">
 									<div className="text-center">
 										<p class="fw-bold">ou</p>
 									</div>
 									<form
 										onSubmit={handleSubmit(onSubmit)}
-										className="row g-3"
+										className="row g-3 justify-content-center"
 									>
-										<div className="col-6">
+										<div className="col-lg-8">
 											<label
 												htmlFor="signin-email"
 												className="form-label"
 											>
-												E-mail
+												E-mail:
 											</label>
 											<input
 												defaultValue=""
@@ -115,12 +115,12 @@ export default function SignIn() {
 												</span>
 											)}
 										</div>
-										<div className="col-12">
+										<div className="col-8">
 											<label
 												htmlFor="signin-password"
 												className="form-label"
 											>
-												Senha
+												Senha:
 											</label>
 											<input
 												defaultValue=""
@@ -138,8 +138,8 @@ export default function SignIn() {
 											)}
 										</div>
 
-										<div className="col-12">
-											<div className="row">
+										<div className="col-6">
+											<div className="row justify-content-center">
 												<div className="col-6">
 													<div className="form-check">
 														<input
@@ -148,7 +148,7 @@ export default function SignIn() {
 															id="gridCheck"
 														/>
 														<label
-															className="form-check-label text-danger"
+															className="form-check-label customLink text-dark"
 															htmlFor="gridCheck"
 														>
 															Lembrar-me
@@ -158,21 +158,23 @@ export default function SignIn() {
 												<div className="col-6 text-end">
 													<a
 														href=""
-														className="customLink text-danger"
+														className="customLink text-dark"
 													>
 														Esqueci minha senha
 													</a>
 												</div>
 											</div>
 										</div>
-										<div className="col-12">
-											<button
-												type="submit"
-												className="btn btn-info"
-											>
-												Entrar
-											</button>
-										</div>
+										<div class="row justify-content-center">			
+											<div className="d-grid gap-2 col-3 mx-auto mt-5 mb-4">
+												<button
+													type="submit"
+													className="btn btn-info btn-lg"
+												>
+													Entrar
+												</button>
+											</div>
+										</div>	
 									</form>
 								</div>
 							</div>
