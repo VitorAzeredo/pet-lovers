@@ -21,7 +21,7 @@ export default function About() {
                                         <div class="badge bg-primary bg-gradient rounded-pill mb-3">Mais lido</div>
                                         <div class="h2 fw-bolder">O que perguntar ao veterinário na 1ª consulta do seu pet</div>
                                         <p>Cuidar de um filhote é uma das melhores experiências que podemos ter. Para que esse pequeno pet tenha uma saúde ótima ao longo da vida, é importante realizar a primeira consulta com um médico-veterinário de confiança. Confira algumas perguntas que você pode fazer nessa ocasião</p>
-                                            <Link href="/artigos/post" passHref>
+                                            <Link href="/artigos/posts/post01" passHref>
                                             <button
 								                type="button"
 								                className="btn btn-info"
@@ -48,7 +48,7 @@ export default function About() {
                             <h2 class="fw-bolder fs-5 mb-4">Notícias</h2>
                             <div class="mb-4">
                                 <div class="small text-muted">29 de Março, 2022 - 11:20</div>
-                                <a class="link-dark" href="#!"><h3>Entenda a tendência probiótica na alimentação animal</h3></a>
+                                <a class="link-dark" href="#"><h3>Entenda a tendência probiótica na alimentação animal</h3></a>
                             </div>
                             <div class="mb-5">
                                 <div class="small text-muted">22 de Abril, 2022 - 12:38</div>
@@ -103,7 +103,7 @@ export default function About() {
                                 <img class="card-img-top" src="/assets/artigos_destaque/ovo_pascoa.png" alt="pets-na-pascoa"/>
                                 <div class="card-body p-4">
                                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">Novidades</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3">Cuidados com os pets na Páscoa</div></a>
+                                    <a class="text-decoration-none link-dark stretched-link" href="/artigos/posts/post02"><div class="h5 card-title mb-3">Cuidados com os pets na Páscoa</div></a>
                                     <p class="card-text mb-0">Você sabia os cães e gatos não podem comer chocolate? Confira algumas dicas para comemorar a Páscoa com os pets de forma saudável...</p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">

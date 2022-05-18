@@ -12,25 +12,32 @@ export default function About() {
             	<header>
             	    <div className="container-fluid pt-4 ps-5 pe-5 pb-4">
 					<Navbar />
-            	        <div class="row justify-content-center">
-            	            <div class="col-lg-8 col-xxl-6">
-            	                <div class="text-center my-5">
-            	                    <h1 class="fw-bolder mb-5">Sobre nós</h1>
-            	                    	<p class="lead fw-normal text-muted mb-5">
+					<div class="row">
+						<div class="col-6">
+							<h1 class="fw-bolder text-center mb-2 mt-3">Sobre nós</h1>
+						</div>
+            	    </div>		   
+						<div class="row">
+            	            <div class="col-6">
+            	                <div class="my-5">
+            	                    
+            	                    	<p class="lead fw-normal text-muted mb-3">
 											A Pet-Lovers existe para trazer amor e alegria para pets e pessoas, através da conexão entre eles...
 										</p>
-										<p class="lead fw-normal text-muted mb-5">
+										<p class="lead fw-normal text-muted mb-3">
 											Acreditamos que esse vínculo e muito forte e precioso, por isso tentamos recriar uma experiencia única para os usuários da plataforma.
 										</p>
-										<p class="lead fw-normal text-muted mb-5">
+										<p class="lead fw-normal text-muted mb-3">
 											Cada adoção que é feita e uma nova história que começa, e não existe limites para viver esse momento, pois tudo e possível se você acreditar!
 										</p>
-										<p class="lead fw-normal text-muted mb-5">
+										<p class="lead fw-normal text-muted mb-3">
 											Nossa missão é resgatar esse sonho de um futuro melhor conectando e criando laços tão fortes e importantes quanto qualquer outro que já existiu... Pois esse não é o fim e sim o começo, muito ainda pode ser vivenciado e apreciado quando damos importância as coisas certas.
 										</p>
 										<p class="lead fw-normal text-muted mb-5">
 											Se de essa chance de viver novas experiencias com um novo amiguinho que vai mudar a sua vida e suas perspectivas.
 										</p>
+										<div class="row">
+											<div class="d-grid gap-2 col-12 mx-auto">
 										<a href="#scroll-target">
 											<button
 												type="button"
@@ -39,6 +46,8 @@ export default function About() {
 												Nossa Historia
 											</button>
 										</a>
+										</div>
+										</div>
             	                </div>
             	            </div>
             	        </div>
