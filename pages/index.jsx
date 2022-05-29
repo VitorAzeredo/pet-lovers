@@ -4,10 +4,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { auth } from "../core/config/firebase/client";
 import { Offcanvas } from "react-bootstrap";
+import { CustomOverlay } from "../shared/components/Overlay";
+import { NavbarPerfilPopover } from "../shared/components/NavbarPerfilPopover";
 
 export default function Home() {
 	const [isLogged, setIsLogged] = useState(false);
 	const [show, setShow] = useState(false);
+	const [urlImgUser, setUrlImgUser] = useState("");
+	const [emailUser, setEmailUser] = useState("");
+	const extractName = (email) => {
+		return email.split("@")[0];
+	};
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -16,6 +23,8 @@ export default function Home() {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setIsLogged(true);
+				setUrlImgUser(user.photoURL);
+				setEmailUser(extractName(user.email));
 			} else {
 				setIsLogged(false);
 			}
@@ -92,9 +101,7 @@ export default function Home() {
 								</Link>
 							) : (
 								<Link href="/autenticacao/entrar">
-									<a className="customLink rounded">
-										Entrar
-									</a>
+									<a className="customLink rounded">Entrar</a>
 								</Link>
 							)}
 						</p>
@@ -102,9 +109,11 @@ export default function Home() {
 				</Offcanvas>
 				<div className="container-fluid m-0">
 					<div className="row">
-						<div className={`fullHeight col-sm-6 pt-4 ps-5 pe-5 pb-4`}>
+						<div
+							className={`fullHeight col-sm-6 pt-4 ps-5 pe-5 pb-4`}
+						>
 							<div className="row pt-2">
-								<div className="col-6 p-0 d-flex algn-items-center">
+								<div className="col-6 p-0 d-flex align-items-center">
 									{" "}
 									<Link href="/" passHref>
 										<h3 className="customLink mb-0">
@@ -113,7 +122,11 @@ export default function Home() {
 									</Link>
 								</div>
 								<div className="col-6 p-0 text-end">
-									<i style={{ cursor: 'pointer' }} onClick={handleShow} className="bi bi-list fs-3 d-block d-sm-none"></i>
+									<i
+										style={{ cursor: "pointer" }}
+										onClick={handleShow}
+										className="bi bi-list fs-3 d-block d-sm-none"
+									></i>
 								</div>
 							</div>
 							<div className="row mt-5">
@@ -169,40 +182,44 @@ export default function Home() {
 						<div
 							className={`${styles.bgPrincipalDog} fullHeight d-none col-sm-6 pt-4 ps-5 pe-5 pb-4 justify-content-end d-sm-flex`}
 						>
-							<p onClick={handleShow} className="mb-0 d-block d-xl-none" style={{ cursor: 'pointer' }}>
+							<p
+								onClick={handleShow}
+								className="mb-0 d-block d-xl-none"
+								style={{ cursor: "pointer" }}
+							>
 								<i className="bi bi-list fs-1"></i>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/sobre">
 									<a className="customLink">Sobre</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/adocao">
 									<a className="customLink">Adoção</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/apadrinhamento">
 									<a className="customLink">Apadrinhamento</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/artigos">
 									<a className="customLink">Artigos</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/parceiros">
 									<a className="customLink">Parceiros</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<p className="ms-3 mt-2  d-none d-xl-block">
 								{" "}
 								<Link href="/contatos">
 									<a className="customLink">Contatos</a>
@@ -211,14 +228,17 @@ export default function Home() {
 							<p className="ms-3 d-none d-xl-block">
 								{" "}
 								{isLogged ? (
-									<Link href="/">
-										<a
-											onClick={signOut}
-											className="customLink text-dark bg-info p-2 rounded"
-										>
-											Sair
-										</a>
-									</Link>
+									<CustomOverlay
+										popAs="h3"
+										popPlacement="bottom"
+										popHeaderTitle={emailUser}
+										popId="pop-thumbnail"
+										urlImgUser={urlImgUser}
+									>
+										<NavbarPerfilPopover
+											signOutAndRoute={signOut}
+										/>
+									</CustomOverlay>
 								) : (
 									<Link href="/autenticacao/entrar">
 										<a className="customLink text-dark bg-info p-2 rounded">
@@ -231,24 +251,6 @@ export default function Home() {
 					</div>
 				</div>
 			</main>
-
-			{/* <footer>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{" "}
-					<span>
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							width={72}
-							height={16}
-						/>
-					</span>
-				</a>
-			</footer> */}
 		</div>
 	);
 }

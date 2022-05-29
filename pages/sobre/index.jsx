@@ -68,7 +68,7 @@ export default function About() {
 								<a href="#scroll-target">
 									<button
 										type="button"
-										classNameName="btn btn-info"
+										className="btn btn-info"
 									>
 										Nossa Historia
 									</button>

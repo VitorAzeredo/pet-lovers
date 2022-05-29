@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { auth } from "../../../core/config/firebase/client";
 import { NavbarPerfilPopover } from "../NavbarPerfilPopover";
@@ -22,7 +22,6 @@ export default function Navbar() {
 
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
-			console.log(user);
 			if (user) {
 				setIsLogged(true);
 				setUrlImgUser(user.photoURL);
@@ -105,7 +104,7 @@ export default function Navbar() {
 					<h3 className="customLink">Pet-Lovers</h3>
 				</Link>
 			</div>
-			<div className="col-6 justify-content-end d-flex">
+			<ul className="col-6 justify-content-end d-flex">
 				<NavIconMenu handle={handleShow} />
 				<NavItem linkPage="sobre" title="Sobre" />
 				<NavItem linkPage="adocao" title="Adoção" />
@@ -133,7 +132,7 @@ export default function Navbar() {
 						</Link>
 					)}
 				</span>
-			</div>
+			</ul>
 		</div>
 	);
 }
