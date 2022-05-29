@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { auth } from "../../../core/config/firebase/client";
 import { NavbarPerfilPopover } from "../NavbarPerfilPopover";
@@ -22,6 +22,7 @@ export default function Navbar() {
 
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
+			console.log(user);
 			if (user) {
 				setIsLogged(true);
 				setUrlImgUser(user.photoURL);
