@@ -5,7 +5,7 @@ export default function About() {
 	return (
 		<div>
 			<Head>
-				<title>Post</title>
+				<title>Post02</title>
 			</Head>
 			<main class="flex-shrink-0">
 

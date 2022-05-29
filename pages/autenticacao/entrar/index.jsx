@@ -64,8 +64,8 @@ export default function SignIn() {
 							</p>
 						</div>
 						<div className="col-6 col-6 pt-4 ps-5 pe-5 pb-4 fullHeight">
-							<div className="row ms-5 mt-5 justify-content-center">
-								<div className="col-6 ms-5 mb-4">
+							<div className="row ms-5 mt-5">
+								<div className="col-6 ms-5 ps-5 mb-4">
 									<h1>É rápido, É fácil!</h1>
 									<small class="ps-1">Bem-vindo de volta</small>
 								</div>
@@ -74,7 +74,7 @@ export default function SignIn() {
 								<div className="col-8">
 									<div className="d-grid gap-2">
 										<button
-											className="btn btn-outline-info"
+											className="btn btn-outline-danger"
 											type="button"
 											onClick={signInWithGoogle}
 										>

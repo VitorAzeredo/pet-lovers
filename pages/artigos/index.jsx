@@ -124,7 +124,7 @@ export default function About() {
                                 <img class="card-img-top" src="/assets/artigos_destaque/gravidez.png" alt="https://www.specialdog.com.br/portalpet/gravidez-psicologica-em-pets-como-identificar-e-tratar" />
                                 <div class="card-body p-4">
                                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">Novidades</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3">Gravidez psicológica em pets: como identificar e tratar</div></a>
+                                    <a class="text-decoration-none link-dark stretched-link" href="/artigos/posts/post03"><div class="h5 card-title mb-3">Gravidez psicológica em pets: como identificar e tratar</div></a>
                                     <p class="card-text mb-0">Entenda um pouco mais sobre a Pseudociese (gravidez psicológica) em gatas e cadelas, as alterações comportamentais e quais as implicações envolvidas nesta condição...</p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -145,7 +145,7 @@ export default function About() {
                                 <img class="card-img-top" src="/assets/artigos_destaque/caoguia.png" alt="https://www.specialdog.com.br/portalpet/caes-de-trabalho-conheca-as-5-principais-profissoes-desses-animais-"/>
                                 <div class="card-body p-4">
                                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">Novidades</div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><div class="h5 card-title mb-3">Cães de trabalho: conheça as 5 principais profissões desses animais</div></a>
+                                    <a class="text-decoration-none link-dark stretched-link" href="/artigos/posts/post04"><div class="h5 card-title mb-3">Cães de trabalho: conheça as 5 principais profissões desses animais</div></a>
                                     <p class="card-text mb-0">Os animais domésticos são muito além de companhia, podendo auxiliar os humanos em funções muito importantes. Com a domesticação...</p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
@@ -161,16 +161,6 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-end mb-5 mb-xl-0">
-                        <a href="#!">
-                            <button
-								type="button"
-								className="btn btn-info"
-							>
-							    Mais Artigos
-							</button>
-                        </a>
                     </div>
                 </div>
                 </section>
