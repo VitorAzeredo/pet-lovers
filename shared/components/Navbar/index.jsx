@@ -1,20 +1,31 @@
 import Link from "next/link";
-
 import { useEffect, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { auth } from "../../../core/config/firebase/client";
+import { NavbarPerfilPopover } from "../NavbarPerfilPopover";
+import { NavIconMenu } from "../NavIconMenu";
+import { NavItem } from "../NavItem";
+import { CustomOverlay } from "../Overlay";
 
 export default function Navbar() {
 	const [isLogged, setIsLogged] = useState(false);
 	const [show, setShow] = useState(false);
+	const [urlImgUser, setUrlImgUser] = useState("");
+	const [emailUser, setEmailUser] = useState("");
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+
+	const extractName = (email) => {
+		return email.split("@")[0];
+	};
 
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setIsLogged(true);
+				setUrlImgUser(user.photoURL);
+				setEmailUser(extractName(user.email));
 			} else {
 				setIsLogged(false);
 			}
@@ -24,6 +35,7 @@ export default function Navbar() {
 	const signOut = () => {
 		auth.signOut();
 	};
+
 	return (
 		<div className="row">
 			<Offcanvas show={show} onHide={handleClose}>
@@ -80,9 +92,7 @@ export default function Navbar() {
 							</Link>
 						) : (
 							<Link href="/autenticacao/entrar">
-								<a className="customLink rounded">
-									Entrar
-								</a>
+								<a className="customLink rounded">Entrar</a>
 							</Link>
 						)}
 					</p>
@@ -95,56 +105,25 @@ export default function Navbar() {
 				</Link>
 			</div>
 			<div className="col-6 justify-content-end d-flex">
-				<p onClick={handleShow} className="mb-0 d-block d-md-none" style={{ cursor: 'pointer' }}>
-					<i className="bi bi-list fs-1"></i>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/sobre">
-						<a className="customLink">Sobre</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/adocao">
-						<a className="customLink">Adoção</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/apadrinhamento">
-						<a className="customLink">Apadrinhamento</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/artigos">
-						<a className="customLink">Artigos</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/parceiros">
-						<a className="customLink">Parceiros</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
-					{" "}
-					<Link href="/contatos">
-						<a className="customLink">Contatos</a>
-					</Link>
-				</p>
-				<p className="ms-3 d-none d-md-block">
+				<NavIconMenu handle={handleShow} />
+				<NavItem linkPage="sobre" title="Sobre" />
+				<NavItem linkPage="adocao" title="Adoção" />
+				<NavItem linkPage="apadrinhamento" title="Apadrinhamento" />
+				<NavItem linkPage="artigos" title="Artigos" />
+				<NavItem linkPage="parceiros" title="Parceiros" />
+				<NavItem linkPage="contatos" title="Contatos" />
+				<span className="ms-3 d-none d-md-flex align-items-center">
 					{" "}
 					{isLogged ? (
-						<Link href="/">
-							<a
-								onClick={signOut}
-								className="customLink text-dark bg-info p-2 rounded"
-							>
-								Sair
-							</a>
-						</Link>
+						<CustomOverlay
+							popAs="h3"
+							popPlacement="bottom"
+							popHeaderTitle={emailUser}
+							popId="pop-thumbnail"
+							urlImgUser={urlImgUser}
+						>
+							<NavbarPerfilPopover signOutAndRoute={signOut} />
+						</CustomOverlay>
 					) : (
 						<Link href="/autenticacao/entrar">
 							<a className="customLink text-dark bg-info p-2 rounded">
@@ -152,7 +131,7 @@ export default function Navbar() {
 							</a>
 						</Link>
 					)}
-				</p>
+				</span>
 			</div>
 		</div>
 	);
