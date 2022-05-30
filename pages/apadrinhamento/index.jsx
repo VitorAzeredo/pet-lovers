@@ -224,9 +224,9 @@ export default function Support({ data }) {
 						</div>
 					) : (
 						<div>
-							<h4>Status da adoção: </h4>
+							<h4>Status do apadrinhamento: </h4>
 							<div className="alert alert-warning" role="alert">
-								Disponível para adoção
+								Disponível para apadrinhar!
 							</div>
 						</div>
 					)}

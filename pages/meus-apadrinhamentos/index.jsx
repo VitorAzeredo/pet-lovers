@@ -5,7 +5,7 @@ import Navbar from "../../shared/components/Navbar";
 import { auth } from "../../core/config/firebase/client";
 
 export async function getServerSideProps() {
-	const res = await fetch("http://localhost:3000/api/buscar-meus-pets/lista-pets");
+	const res = await fetch("http://localhost:3000/api/buscar-meus-apadrinhamentos/lista-pets");
 	const data = await res.json();
 	return { props: { data } };
 }
@@ -51,7 +51,7 @@ export default function Adoption({ data }) {
 	return (
 		<div>
 			<Head>
-				<title>Meus-pets</title>
+				<title>Meus-apadrinhamentos</title>
 			</Head>
 			<main>
 				<div className="container-fluid pt-4 ps-5 pe-5 pb-4">
@@ -59,21 +59,21 @@ export default function Adoption({ data }) {
 					<div className="row mt-4">
 						{data?.length > 0 && (
 							<div className="col-12 text-center">
-								<h1>Aqui estão todos os seus pets cadastrados para adoção</h1>
+								<h1>Aqui estão todos os seus pets cadastrados para apadrinhamento</h1>
 								<p className="fs-5">
-									Você pode gerenciar eles na aba "Meus Pets"
+									Você pode gerenciar eles na aba "Meus Apadrinhamentos"
 								</p>
 							</div>
 						)}
 						<div className="col-12 text-end mb-5">
 							<p className="">
 								{" "}
-								{isSignin ? (<Link href="/adocao/registrar" passHref>
+								{isSignin ? (<Link href="/apadrinhamento/registrar" passHref>
 									<button
 										type="button"
-										className="btn btn-info"
+										className="btn btn-warning"
 									>
-										Você teria um amigo para doar?
+										Você teria um amigo para apadrinhar?
 									</button>
 								</Link>) : null}
 							</p>

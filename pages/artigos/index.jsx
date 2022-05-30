@@ -39,7 +39,7 @@ export default function About() {
 									<Link href="/artigos/posts/post01" passHref>
 										<button
 											type="button"
-											classNameName="btn btn-info"
+											className="btn btn-info"
 										>
 											Ler o artigo completo
 										</button>
@@ -68,7 +68,7 @@ export default function About() {
 								<div className="small text-muted">
 									29 de Março, 2022 - 11:20
 								</div>
-								<a className="link-dark" href="#">
+								<a className="link-dark" href="https://www.specialdog.com.br/portalpet/entenda-a-tendencia-probiotica-na-alimentacao-animal-">
 									<h3>
 										Entenda a tendência probiótica na
 										alimentação animal
@@ -79,7 +79,7 @@ export default function About() {
 								<div className="small text-muted">
 									22 de Abril, 2022 - 12:38
 								</div>
-								<a className="link-dark" href="#!">
+								<a className="link-dark" href="https://www.specialdog.com.br/portalpet/o-que-pode-ou-nao-pode-nos-primeiros-meses-do-filhote-">
 									<h3>
 										O que pode ou não pode nos primeiros
 										meses do filhote.
@@ -90,7 +90,7 @@ export default function About() {
 								<div className="small text-muted">
 									28 de Janeiro, 2022 - 14:11
 								</div>
-								<a className="link-dark" href="#!">
+								<a className="link-dark" href="https://www.specialdog.com.br/portalpet/calendario-de-vacinas-saiba-a-importancia-de-imunizar-o-seu-pet-">
 									<h3>
 										Calendário de vacinas - saiba a
 										importância de imunizar o seu pet.
@@ -101,9 +101,9 @@ export default function About() {
 								<a href="#!">
 									<button
 										type="button"
-										classNameName="btn btn-info"
+										className="btn btn-info"
 									>
-										Mais Artigos
+										Mais Noticias
 									</button>
 								</a>
 							</div>

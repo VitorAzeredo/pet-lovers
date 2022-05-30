@@ -6,7 +6,7 @@ export function NavbarPerfilPopover({ signOutAndRoute }) {
 			<Nav.Link eventKey="meus-pets" href="/meus-pets">
 				Meus Pets
 			</Nav.Link>
-			<Nav.Link eventKey="meus-pets" href="/meus-pets">
+			<Nav.Link eventKey="meus-apadrinhamentos" href="/meus-apadrinhamentos">
 				Meus Apadrinhamentos
 			</Nav.Link>
 			<Nav.Link onClick={signOutAndRoute} eventKey="sair">

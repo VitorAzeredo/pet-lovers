@@ -219,7 +219,7 @@ export default function Adoption({ data }) {
 						<div>
 							<h4>Status da adoção: </h4>
 							<div className="alert alert-info" role="alert">
-								Disponível para adoção
+								Disponível para adoção!
 							</div>
 						</div>
 					)}
