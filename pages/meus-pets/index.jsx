@@ -1,23 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../shared/components/Navbar";
 import { auth } from "../../core/config/firebase/client";
 
-export async function getServerSideProps() {
+export async function getServerSideProps() { // Verificar se será possível reaproveitar a listagem de pets
 	const res = await fetch("http://localhost:3000/api/buscar-meus-pets/lista-pets");
 	const data = await res.json();
 	return { props: { data } };
 }
 
-export default function Adoption({ data }) {
-	const [show, setShow] = useState(false);
-	const [pet, setPet] = useState({});
-	const [activePhoto, setActivePhoto] = useState(0);
+export default function Adoption({ data }) { // Veridica se o usuário está logado e habilita a opção de cadastrar um novo pet, e editar.
 	const [isSignin, setIsSignin] = useState(false);
-
-	const [lottie, setLottie] = useState(null);
-	const ref = useRef(null);
 
 	useEffect(() => {
 		return auth.onAuthStateChanged(user => {
@@ -29,24 +23,6 @@ export default function Adoption({ data }) {
 		}
 		)
 	}, []);
-
-	useEffect(() => {
-		import("lottie-web").then((Lottie) => setLottie(Lottie.default));
-	}, []);
-
-	useEffect(() => {
-		if (lottie && ref.current) {
-			const animation = lottie.loadAnimation({
-				container: ref.current,
-				renderer: "svg",
-				loop: true,
-				autoplay: true,
-				path: "/assets/doge-moon.json",
-			});
-
-			return () => animation.destroy();
-		}
-	}, [lottie]);
 
 	return (
 		<div>
@@ -73,32 +49,23 @@ export default function Adoption({ data }) {
 										type="button"
 										className="btn btn-info"
 									>
-										Você teria um amigo para doar?
+										Você teria um pet para doar?
 									</button>
 								</Link>) : null}
 							</p>
 						</div>
 					</div>
-					
-					{!data?.length && (
-						<div className="row text-center mt-4">
-							<h2>
-								Por enquanto não encontramos amigos para adotar
-							</h2>
-							<div
-								style={{ maxWidth: 700 }}
-								className="w-75 ms-auto me-auto"
-								ref={ref}
-							></div>
-						</div>
-					)}
-
 					<div class="table-responsive ">
 					  <table class="table align-middle">
 					    <thead>
 					      <tr class="table-dark">
 							  <th class="bi bi-file-person"> Nome</th>
-							  <th class="bi bi-envelope-fill"> E-mail</th>
+							  <th class="bi bi-journal"> Descrição</th>
+							  <th class="bi bi-map"> Estado</th>
+							  <th class="bi bi-geo-alt"> Cidade</th>
+							  <th class="bi bi-geo"> CEP</th>
+							  <th class="bi bi-book"> Historia do Pet</th>
+							  <th class="bi bi-images"> Edição das Imagens</th>
 							  <th class="bi bi-layers-fill"> Status</th>
 							  <th class="bi bi-pencil-square"> Editar</th>
 					      </tr>
@@ -106,21 +73,36 @@ export default function Adoption({ data }) {
 					    <tbody>
 					      <tr class="table-light">
 						  	  <th>Thor</th>
-							  <th>vitor.silva.azeredo@gmail.com</th>
-							  <th>Disponivel</th>
-							  <th>Alterar</th>
+							  <th>Cachorro de grande porte - Preto</th>
+							  <th>Rio de Janeiro</th>
+							  <th>Niteroi</th>
+							  <th>24.547-896</th>
+							  <th>Thor foi achado na rua.</th>
+							  <th>Alterar Imagens</th>
+							  <th>Disponível</th>
+							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>
 					      </tr>
 					      <tr class="align-bottom table-light">
-						  	  <th>Thor</th>
-							  <th>vitor.silva.azeredo@gmail.com</th>
-							  <th>Disponivel</th>
-							  <th>Alterar</th>
+						  	  <th>Zeus</th>
+							  <th>Gato de pequeno porte - Branco</th>
+							  <th>São Paulo</th>
+							  <th>Morumbi</th>
+							  <th>24.258-874</th>
+							  <th>Sua dona faleceu, ele procura um novo lar.</th>
+							  <th>Alterar Imagens</th>
+							  <th>Indisponível</th>
+							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>
 					      </tr>
 					      <tr class="align-bottom table-light">
-						  	  <th>Thor</th>
-							  <th>vitor.silva.azeredo@gmail.com</th>
-							  <th>Disponivel</th>
-							  <th>Alterar</th>
+						  	  <th>Poseidon</th>
+							  <th>Cacchorro de porte medio - Vira-lata</th>
+							  <th>Recife</th>
+							  <th>Centro</th>
+							  <th>24.258-125</th>
+							  <th>Seu dono não tem mas condições de sustenta-lo</th>
+							  <th>Alterar Imagens</th>
+							  <th>Disponível</th>
+							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>	
 					      </tr>
 					    </tbody>
 					  </table>

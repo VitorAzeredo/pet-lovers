@@ -98,7 +98,7 @@ export default function About() {
 								</a>
 							</div>
 							<div className="text-end mb-5 mb-xl-0">
-								<a href="#!">
+								<a href="https://www.specialdog.com.br/portalpet/">
 									<button
 										type="button"
 										className="btn btn-info"
