@@ -29,7 +29,7 @@ export default function About() {
 			<main class="flex-shrink-0">
 				<section class="py-4 ps-5 pe-5">
 				<Navbar />
-                <div class="container px-5">
+                <div class="container">
                     <div class="rounded-2 py-2 px-2 px-md-2 mb-2">
                         <div class="text-center mb-3 mt-2">
                             <div class="rounded-3 mb-3"><i class="bi bi-envelope-heart-fill-5x"></i></div>

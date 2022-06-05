@@ -8,6 +8,9 @@ import {
 } from "../../../core/config/firebase/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Button from "react-bootstrap/Button";
 
 export default function SignIn() {
 	const {
@@ -40,6 +43,10 @@ export default function SignIn() {
 				const errorMessage = error.message;
 			});
 	};
+	// Offcanvas - Esqueci minha senha
+	const [show, setShow] = useState(false);
+  	const handleClose = () => setShow(false);
+  	const handleShow = () => setShow(true);
 
 	return (
 		<div>
@@ -157,11 +164,26 @@ export default function SignIn() {
 												</div>
 												<div className="col-6 text-end">
 													<a
-														href=""
+														href="#sidebar"
 														className="customLink text-dark"
 													>
 														Esqueci minha senha
 													</a>
+													<>
+													<Button variant="primary" onClick={handleShow}>
+      												  Launch
+      												</Button>
+
+      												<Offcanvas show={show} onHide={handleClose}>
+      												  <Offcanvas.Header closeButton>
+      												    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+      												  </Offcanvas.Header>
+      												  <Offcanvas.Body>
+      												    Some text as placeholder. In real life you can have the elements you
+      												    have chosen. Like, text, images, lists, etc.
+      												  </Offcanvas.Body>
+      												</Offcanvas>
+													</>
 												</div>
 											</div>
 										</div>

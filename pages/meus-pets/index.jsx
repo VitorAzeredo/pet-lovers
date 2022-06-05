@@ -79,7 +79,7 @@ export default function Adoption({ data }) { // Veridica se o usuário está log
 							  <th>24.547-896</th>
 							  <th>Thor foi achado na rua.</th>
 							  <th>Alterar Imagens</th>
-							  <th>Disponível</th>
+							  <th><button type="button" className="btn btn-outline-dark">Disponível</button></th>
 							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>
 					      </tr>
 					      <tr class="align-bottom table-light">
@@ -90,7 +90,7 @@ export default function Adoption({ data }) { // Veridica se o usuário está log
 							  <th>24.258-874</th>
 							  <th>Sua dona faleceu, ele procura um novo lar.</th>
 							  <th>Alterar Imagens</th>
-							  <th>Indisponível</th>
+							  <th><button type="button" className="btn btn-outline-dark">Disponível</button></th>
 							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>
 					      </tr>
 					      <tr class="align-bottom table-light">
@@ -101,7 +101,17 @@ export default function Adoption({ data }) { // Veridica se o usuário está log
 							  <th>24.258-125</th>
 							  <th>Seu dono não tem mas condições de sustenta-lo</th>
 							  <th>Alterar Imagens</th>
-							  <th>Disponível</th>
+							  <th>
+							  		<div className="btn-group" role="group">
+  										  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  										    Status
+  										  </button>
+  										  <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+  										    <li><a className="dropdown-item" href="#">Dropdown</a></li>
+  										    <li><a className="dropdown-item" href="#">Dropdown link</a></li>
+  										  </ul>
+  							  		</div>
+							  </th>
 							  <th><button type="button" className="btn btn-outline-info"> Alterar</button></th>	
 					      </tr>
 					    </tbody>

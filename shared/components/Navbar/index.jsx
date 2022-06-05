@@ -49,37 +49,43 @@ export default function Navbar() {
 							<a className="customLink">Sobre</a>
 						</Link>
 					</p>
-					<p className="mt-3">
+					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/adocao">
 							<a className="customLink">Adoção</a>
 						</Link>
 					</p>
-					<p className="mt-3">
+					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/apadrinhamento">
 							<a className="customLink">Apadrinhamento</a>
 						</Link>
 					</p>
-					<p className="mt-3">
+					<p className="mt-3" onClick={handleClose}>
+						{" "}
+						<Link href="/pets-adotados">
+							<a className="customLink">Pets Adotados</a>
+						</Link>
+					</p>
+					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/artigos">
 							<a className="customLink">Artigos</a>
 						</Link>
 					</p>
-					<p className="mt-3">
+					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/parceiros">
 							<a className="customLink">Parceiros</a>
 						</Link>
 					</p>
-					<p className="mt-3">
+					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/contatos">
 							<a className="customLink">Contatos</a>
 						</Link>
 					</p>
-					<p className="mt-3 fullWidth ">
+					<p className="mt-3 fullWidth">
 						{" "}
 						{isLogged ? (
 							<Link href="/">
@@ -109,6 +115,7 @@ export default function Navbar() {
 				<NavItem linkPage="sobre" title="Sobre" />
 				<NavItem linkPage="adocao" title="Adoção" />
 				<NavItem linkPage="apadrinhamento" title="Apadrinhamento" />
+				<NavItem linkPage="pets-adotados" title="Pets Adotados" />
 				<NavItem linkPage="artigos" title="Artigos" />
 				<NavItem linkPage="parceiros" title="Parceiros" />
 				<NavItem linkPage="contatos" title="Contatos" />

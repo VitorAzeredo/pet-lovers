@@ -58,37 +58,37 @@ export default function Home() {
 								<a className="customLink">Sobre</a>
 							</Link>
 						</p>
-						<p className="mt-3">
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/adocao">
 								<a className="customLink">Adoção</a>
 							</Link>
 						</p>
-						<p className="mt-3">
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/apadrinhamento">
 								<a className="customLink">Apadrinhamento</a>
 							</Link>
 						</p>
-						<p className="mt-3">
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/artigos">
 								<a className="customLink">Artigos</a>
 							</Link>
 						</p>
-						<p className="mt-3">
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/parceiros">
 								<a className="customLink">Parceiros</a>
 							</Link>
 						</p>
-						<p className="mt-3">
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/contatos">
 								<a className="customLink">Contatos</a>
 							</Link>
 						</p>
-						<p className="mt-3 fullWidth ">
+						<p className="mt-3 fullWidth" onClick={handleClose}>
 							{" "}
 							{isLogged ? (
 								<Link href="/">
