@@ -5,9 +5,11 @@ import { useState, useRef, useEffect } from "react";
 export default function About() {
 	const [lottie, setLottie] = useState(null);
 	const ref = useRef(null);
+
 	useEffect(() => {
 		import("lottie-web").then((Lottie) => setLottie(Lottie.default));
 	}, []);
+
 	useEffect(() => {
 		if (lottie && ref.current) {
 			const animation = lottie.loadAnimation({
@@ -21,6 +23,7 @@ export default function About() {
 			return () => animation.destroy();
 		}
 	}, [lottie]);
+
     return (
 		<div>
 			<Head>
@@ -82,28 +85,6 @@ export default function About() {
 							></div>
 						</div>
 					</div>
-                   {/* <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5 mt-5">
-                        <div class="col">
-                            <div class="feature bg-dark bg-gradient text-white fw-bolder mb-3"><i class="bi bi-telephone-outbound ms-2"> 1746</i></div>
-                            <div class="h5 mb-2">SMPDA</div>
-                            <a class="text-decoration-none" href="https://www.rio.rj.gov.br/web/smpda"><p class="text-muted mb-0">Secretaria Municipal de Proteção e Defesa dos Animais.</p></a>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone-outbound ms-2"></i></div>
-                            <div class="h5">Teste</div>
-                            <a class="text-decoration-none" href="https://www.rio.rj.gov.br/web/smpda"><p class="text-muted mb-0">Secretaria Municipal de Proteção e Defesa dos Animais.</p></a>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone-outbound ms-2"></i></div>
-                            <div class="h5">Teste</div>
-                            <a class="text-decoration-none" href="https://www.rio.rj.gov.br/web/smpda"><p class="text-muted mb-0">Secretaria Municipal de Proteção e Defesa dos Animais.</p></a>
-                        </div>
-                        <div class="col">
-                            <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone-outbound ms-2"></i></div>
-                            <div class="h5">Teste</div>
-                            <a class="text-decoration-none" href="https://www.rio.rj.gov.br/web/smpda"><p class="text-muted mb-0">Secretaria Municipal de Proteção e Defesa dos Animais.</p></a>
-                        </div>
-                    </div>*/}
                 </div>
             	</section>
 			</main>

@@ -70,6 +70,12 @@ export default function Home() {
 								<a className="customLink">Apadrinhamento</a>
 							</Link>
 						</p>
+						{/* <p className="mt-3" onClick={handleClose}>
+							{" "}
+							<Link href="/pets-adotados">
+								<a className="customLink">Pets Adotados</a>
+							</Link>
+						</p> */}
 						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/artigos">
@@ -207,6 +213,12 @@ export default function Home() {
 									<a className="customLink">Apadrinhamento</a>
 								</Link>
 							</p>
+							{/* <p className="ms-3 mt-2 d-none d-xl-block">
+								{" "}
+								<Link href="/pets-adotados">
+									<a className="customLink">Pets Adotados</a>
+								</Link>
+							</p> */}
 							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/artigos">
@@ -225,7 +237,7 @@ export default function Home() {
 									<a className="customLink">Contatos</a>
 								</Link>
 							</p>
-							<p className="ms-3 d-none d-xl-block">
+							<div className="ms-3 d-none d-xl-block">
 								{" "}
 								{isLogged ? (
 									<CustomOverlay
@@ -246,7 +258,7 @@ export default function Home() {
 										</a>
 									</Link>
 								)}
-							</p>
+							</div>
 						</div>
 					</div>
 				</div>

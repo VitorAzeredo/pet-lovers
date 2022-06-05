@@ -1,7 +1,5 @@
-import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import Navbar from "../../../shared/components/Navbar";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import { auth } from "../../../core/config/firebase/client";
