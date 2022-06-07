@@ -70,12 +70,12 @@ export default function Home() {
 								<a className="customLink">Apadrinhamento</a>
 							</Link>
 						</p>
-						{/* <p className="mt-3" onClick={handleClose}>
+						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/pets-adotados">
 								<a className="customLink">Pets Adotados</a>
 							</Link>
-						</p> */}
+						</p>
 						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/artigos">
@@ -213,12 +213,12 @@ export default function Home() {
 									<a className="customLink">Apadrinhamento</a>
 								</Link>
 							</p>
-							{/* <p className="ms-3 mt-2 d-none d-xl-block">
+							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/pets-adotados">
 									<a className="customLink">Pets Adotados</a>
 								</Link>
-							</p> */}
+							</p>
 							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/artigos">

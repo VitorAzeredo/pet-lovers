@@ -76,7 +76,7 @@ export default function Adoption({ data }) {
 		<>
 			<div className="row mt-4">
 				{data?.length > 0 && (
-					<div className="col-12 text-center">
+					<div className="col-12 text-center mb-5 mt-2">
 						<h1>Amigos que já encontraram um lar</h1>
 					</div>
 				)}
@@ -85,7 +85,7 @@ export default function Adoption({ data }) {
 				<div className="row mt-4">
 					{data.map((petMapped) => (
 						<div className="col-sm-3 mb-3" key={petMapped.petId}>
-							<div className="card shadow">
+							<div className="card shadow bg-light border-success">
 								<div className="card-body">
 									<h5 className="card-title">
 										{petMapped.name}
@@ -104,7 +104,7 @@ export default function Adoption({ data }) {
 										{petMapped.description}
 									</p>
 									<div className="d-grid">
-                                        <h1><span className="w-100 badge text-info bg-light">Adotado</span></h1>
+                                        <h2><span className="w-100 badge text-ligth bg-dark">Adotado<i className="ms-2 bi bi-balloon-heart-fill"></i></span></h2>
 									</div>
 								</div>
 							</div>
@@ -114,7 +114,7 @@ export default function Adoption({ data }) {
 			)}
 			{!data?.length && (
 				<div className="row text-center mt-4">
-					<h2>Por enquanto não encontramos amigos para adotar</h2>
+					<h2>Por enquanto não encontramos amigos adotados!</h2>
 					<div
 						style={{ maxWidth: 700 }}
 						className="w-75 ms-auto me-auto"
@@ -190,7 +190,7 @@ export default function Adoption({ data }) {
 				</Modal.Body>
 
 				<Modal.Footer>
-					<Button variant="info" onClick={handleClose}>
+					<Button variant="outline-success" onClick={handleClose}>
 						Fechar
 					</Button>
 				</Modal.Footer>

@@ -1,9 +1,7 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import Navbar from "../../shared/components/Navbar";
 import { auth } from "../../core/config/firebase/client";
 import Base from "../../shared/layout/Base";
 
@@ -103,10 +101,10 @@ export default function Support({ data }) {
 				<div className="row mt-4">
 					{data.map((petMapped) => (
 						<div
-							className="col-sm-3 mb-3 p-sm-1 px-0"
+							className="col-sm-3 mb-3"
 							key={petMapped.petId}
 						>
-							<div className="card shadow">
+							<div className="card shadow border-warning">
 								<div className="card-body">
 									<h5 className="card-title">
 										{petMapped.name}

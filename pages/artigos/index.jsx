@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Navbar from "../../shared/components/Navbar";
 import Link from "next/link";
 import Base from "../../shared/layout/Base";
 
@@ -10,7 +8,7 @@ About.getLayout = function getLayout(page) {
 export default function About() {
 	return (
 		<>
-			<div classNameName="container px-2">
+			<div className="container px-2">
 				<h1 className="row justify-content-center py-4">
 					Artigos que talvés você goste
 				</h1>
@@ -114,7 +112,7 @@ export default function About() {
 									<div className="d-flex h-100 align-items-center justify-content-center">
 										<div className="text-center">
 											<a
-												classNameName="customLink"
+												className="customLink"
 												href="/contatos"
 											>
 												<h5>Fale Conosco</h5>
