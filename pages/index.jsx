@@ -73,7 +73,7 @@ export default function Home() {
 						<p className="mt-3" onClick={handleClose}>
 							{" "}
 							<Link href="/pets-adotados">
-								<a className="customLink">Pets Adotados</a>
+								<a className="customLink">Adotados</a>
 							</Link>
 						</p>
 						<p className="mt-3" onClick={handleClose}>
@@ -94,7 +94,7 @@ export default function Home() {
 								<a className="customLink">Contatos</a>
 							</Link>
 						</p>
-						<p className="mt-3 fullWidth" onClick={handleClose}>
+						<p className="fullWidth" onClick={handleClose}>
 							{" "}
 							{isLogged ? (
 								<Link href="/">
@@ -190,7 +190,7 @@ export default function Home() {
 						>
 							<p
 								onClick={handleShow}
-								className="mb-0 d-block d-xl-none"
+								className="mb-0 d-block d-lg-none"
 								style={{ cursor: "pointer" }}
 							>
 								<i className="bi bi-list fs-1"></i>
@@ -216,7 +216,7 @@ export default function Home() {
 							<p className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								<Link href="/pets-adotados">
-									<a className="customLink">Pets Adotados</a>
+									<a className="customLink">Adotados</a>
 								</Link>
 							</p>
 							<p className="ms-3 mt-2 d-none d-xl-block">
@@ -237,7 +237,7 @@ export default function Home() {
 									<a className="customLink">Contatos</a>
 								</Link>
 							</p>
-							<div className="ms-3 d-none d-xl-block">
+							<div className="ms-3 mt-2 d-none d-xl-block">
 								{" "}
 								{isLogged ? (
 									<CustomOverlay

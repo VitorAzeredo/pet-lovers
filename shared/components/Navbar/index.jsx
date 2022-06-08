@@ -64,7 +64,7 @@ export default function Navbar() {
 					<p className="mt-3" onClick={handleClose}>
 						{" "}
 						<Link href="/pets-adotados">
-							<a className="customLink">Pets Adotados</a>
+							<a className="customLink">Adotados</a>
 						</Link>
 					</p>
 					<p className="mt-3" onClick={handleClose}>
@@ -115,7 +115,7 @@ export default function Navbar() {
 				<NavItem linkPage="sobre" title="Sobre" />
 				<NavItem linkPage="adocao" title="Adoção" />
 				<NavItem linkPage="apadrinhamento" title="Apadrinhamento" />
-				<NavItem linkPage="pets-adotados" title="Pets Adotados" />
+				<NavItem linkPage="pets-adotados" title="Adotados" />
 				<NavItem linkPage="artigos" title="Artigos" />
 				<NavItem linkPage="parceiros" title="Parceiros" />
 				<NavItem linkPage="contatos" title="Contatos" />
