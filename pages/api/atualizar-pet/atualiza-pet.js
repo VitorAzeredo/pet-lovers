@@ -1,5 +1,4 @@
 import nc from "next-connect";
-import multipartFormParse from "../../../shared/middleware/pet/multipart-form-parser";
 import admin from "../../../core/config/firebase/admin";
 import { Validator } from "jsonschema";
 import schema from "../../../shared/schemas/pet/data-atualiza-registro";
@@ -8,16 +7,15 @@ const v = new Validator();
 
 const handler = nc({
 	onError: (err, req, res, next) => {
-		console.error(err.stack);
 		res.status(500).end("Something broke!");
 	},
 	onNoMatch: (req, res) => {
 		res.status(404).end("Page is not found");
 	},
 })
-	.use(multipartFormParse)
-	.put(async (req, res) => {
-		const data = { body: req.body, headers: req.headers };
+	.patch(async (req, res) => {
+		const data = { body: JSON.parse(req.body), headers: req.headers };
+
 		const result = v.validate(data, schema);
 
 		if (result.errors.length) {
@@ -45,25 +43,18 @@ const handler = nc({
 			]);
 		}
 
-        console.log(data.body);
+		const { name, description, state, city, cep, history, adopted, petId } = data.body;
 
-		// await admin
-		// 	.firestore()
-		// 	.collection("pets")
-		// 	.doc(body.petId)
-		// 	.update({
-
-		// 		adopted: false,
-		// 		updatedAt: admin.firestore.Timestamp.now(),
-		// 	});
+		await admin
+			.firestore()
+			.collection("pets")
+			.doc(petId)
+			.update({
+				name, description, state, city, cep, history, adopted,
+				updatedAt: admin.firestore.Timestamp.now(),
+			});
 
 		res.status(201).send();
 	})
-
-export const config = {
-	api: {
-		bodyParser: false,
-	},
-};
 
 export default handler;

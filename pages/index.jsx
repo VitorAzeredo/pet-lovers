@@ -190,7 +190,7 @@ export default function Home() {
 						>
 							<p
 								onClick={handleShow}
-								className="mb-0 d-block d-lg-none"
+								className="mb-0 d-block d-xl-none"
 								style={{ cursor: "pointer" }}
 							>
 								<i className="bi bi-list fs-1"></i>

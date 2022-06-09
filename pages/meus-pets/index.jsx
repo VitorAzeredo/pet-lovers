@@ -9,8 +9,7 @@ import { useForm } from "react-hook-form";
 
 // Veridica se o usuário está logado e habilita a opção de cadastrar um novo pet, e editar.
 export default function Adoption() {
-	const { handleSubmit, register, setValue } = useForm();
-	const onSubmit = values => console.log(values);
+	const { handleSubmit, register, setValue, getValues } = useForm();
 	const [isSignin, setIsSignin] = useState(false);
 	const [data, setData] = useState(null)
 	const [show, setShow] = useState(false);
@@ -19,7 +18,6 @@ export default function Adoption() {
 	const handleShow = () => setShow(true);
 	const setDataPet = (data) => {
 		for (const [key, value] of Object.entries(data)) {
-			console.log(key, value);
 			setValue(key, value);
 		}
 	}
@@ -31,6 +29,22 @@ export default function Adoption() {
 		}
 		setDataPet(findPet);
 		setPetDetail(findPet);
+	}
+
+	const sendUpdatePetAndCloseModal = async () => {
+		const { name, description, state, city, cep, history, adopted, petId } = getValues();
+		
+		const token = await auth.currentUser.getIdToken();
+		await fetch("/api/atualizar-pet/atualiza-pet", {
+			method: "PATCH",
+			headers: {
+				Authorization: token,
+			},
+			body: JSON.stringify({name, description, state, city, cep, history, adopted, petId}),
+		});
+		const indexToUpdate = data.findIndex(pet => pet.petId === petId);
+		data[indexToUpdate] = Object.assign(data[indexToUpdate], {...getValues(), adopted});
+		handleClose();
 	}
 
 
@@ -106,7 +120,11 @@ export default function Adoption() {
 										<th>{pet.city}</th>
 										<th>{pet.cep}</th>
 										<th>{pet.history}</th>
-										<th><button type="button" className="btn btn-outline-info"> Disponível</button></th>
+										<th>
+											{
+												pet?.adopted ? <button type="button" disabled className="btn btn-outline-info"> Adotado </button> : <button type="button" disabled className="btn btn-outline-info"> Disponível</button>
+											}
+										</th>
 										<th>
 											<button type="button" className="btn btn-outline-dark"onClick={() => handleShowWithDataPet(pet.petId)}>
 												Alterar
@@ -116,7 +134,7 @@ export default function Adoption() {
       											    <Modal.Title>Editor de cadastro</Modal.Title>
       											  </Modal.Header>
       											  	<Modal.Body>
-														<form onSubmit={handleSubmit(onSubmit)}>
+														<form>
 															<div className="col-md-12 mb-3">
 																<label htmlFor="name" className="form-label">
 																	Nome
@@ -222,21 +240,22 @@ export default function Adoption() {
 																/>																
 															</div>
 															<div className="col-md-12 mb-3">
-																<label htmlFor="inputState" className="form-label">
+																<label htmlFor="inputAdopted" className="form-label">
 																	Status pet
 																</label>
 																<select
-																	id="inputState"
+																	id="inputAdopted"
 																	className="form-select"
 																	{...register("adopted", {
 																		required: true,
+																		setValueAs: (value) => JSON.parse(value)
 																	})}																	
 																>
-																	<option value="">
+																	<option value={false}>
 																		Selecionar...
 																	</option>
-																	<option value={true}>Disponível</option>
-																	<option value={false}>Indisponível</option>
+																	<option value={false}>Disponível</option>
+																	<option value={true}>Adotado</option>
 																</select>																
 															</div>
 														</form>
@@ -245,7 +264,7 @@ export default function Adoption() {
       											    <Button variant="secondary" onClick={handleClose}>
       											      Fechar
       											    </Button>
-      											    <Button variant="primary" onClick={handleClose}>
+      											    <Button variant="primary" onClick={sendUpdatePetAndCloseModal}>
       											      Savar Alterações
       											    </Button>
       											  </Modal.Footer>

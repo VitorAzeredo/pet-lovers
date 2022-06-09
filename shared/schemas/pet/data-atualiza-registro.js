@@ -43,6 +43,16 @@ export default {
 					minLength: 1,
 					maxLength: 50,
 					required: true,
+				},
+				adopted: {
+					type: "boolean",
+					required: true,
+				},
+				petId: {
+					type: "string",
+					minLength: 8,
+					maxLength: 50,
+					required: true
 				}
 			},
 		},
