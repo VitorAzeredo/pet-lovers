@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
 import {
-	auth,
-	signInWithEmailAndPassword,
-	signInWithPopup,
-	GoogleAuthProvider,
-} from "../../../core/config/firebase/client";
+		auth,
+		signInWithEmailAndPassword,
+		signInWithPopup,
+		GoogleAuthProvider,
+		} from "../../../core/config/firebase/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import Modal from 'react-bootstrap/Modal'
 import Button from "react-bootstrap/Button";
 
 export default function SignIn() {
@@ -85,8 +85,8 @@ export default function SignIn() {
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											<h7 class="text-dark fw-bold">Entrar com Google</h7>
-											<i className="ms-2 bi bi-google text-dark"></i>
+											<h7 class="fw-bold">Entrar com Google</h7>
+											<i className="ms-2 bi bi-google text-red"></i>
 										</button>
 									</div>
 								</div>
@@ -164,26 +164,43 @@ export default function SignIn() {
 												</div>
 												<div className="col-6 text-end">
 													<a
-														href="#sidebar"
+														onClick={handleShow}
 														className="customLink text-dark"
 													>
-														Esqueci minha senha
+														Alterar senha
 													</a>
-													<>
-													<Button variant="primary" onClick={handleShow}>
-      												  Launch
-      												</Button>
-
-      												<Offcanvas show={show} onHide={handleClose}>
-      												  <Offcanvas.Header closeButton>
-      												    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-      												  </Offcanvas.Header>
-      												  <Offcanvas.Body>
-      												    Some text as placeholder. In real life you can have the elements you
-      												    have chosen. Like, text, images, lists, etc.
-      												  </Offcanvas.Body>
-      												</Offcanvas>
-													</>
+													<Modal show={show} onHide={handleClose}>
+      												  <Modal.Header closeButton className="bg-light">
+      												    <Modal.Title>Ola, vamos solicitar uma senha nova?</Modal.Title>
+      												  </Modal.Header>
+      												  	<Modal.Body>
+															<form>
+																<div className="col-md-12 mb-3">
+																	<label htmlFor="name" className="form-label">
+																		Por favor insira o e-mail cadastrado:
+																	</label>
+																	<input
+																		type="text"
+																		className="form-control"
+																		id="name"
+																		placeholder="Ex: pet@gmail.com"
+																		{...register("name", {
+																			required: "Requerido",
+																			minLength: 1
+																		  })}
+																	/>																
+																</div>
+															</form>
+														</Modal.Body>
+      												  <Modal.Footer>
+      												    <Button variant="dark" onClick={handleClose}>
+      												      Fechar
+      												    </Button>
+      												    <Button variant="info" onClick={handleClose}>
+      												      Salvar
+      												    </Button>
+      												  </Modal.Footer>
+      												</Modal>
 												</div>
 											</div>
 										</div>
@@ -191,7 +208,7 @@ export default function SignIn() {
 											<div className="d-grid gap-2 col-3 mx-auto mt-5 mb-4">
 												<button
 													type="submit"
-													className="btn btn-info btn-lg"
+													className="btn btn-info btn-lg fw-bolder"
 												>
 													Entrar
 												</button>

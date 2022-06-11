@@ -59,7 +59,7 @@ export default function About() {
                                         <div className="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                                     </div>
                                     <div className="form-floating mb-3">
-                                        <textarea className="form-control" id="message" type="text" placeholder="Deixe aqui a sua Mensagem" data-sb-validations="required"></textarea>
+                                        <textarea className="form-control lh-1" id="message" type="text" placeholder="Deixe aqui a sua Mensagem" data-sb-validations="required"></textarea>
                                         <label type="message">Deixe aqui a sua Mensagem</label>
                                         <div className="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                     </div>

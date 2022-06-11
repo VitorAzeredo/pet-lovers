@@ -13,7 +13,7 @@ const handler = nc({
 	try {
 		admin
 			.firestore()
-			.collection("pets")
+			.collection("protections")
 			.get()
 			.then((snapshot) => {
 				const pets = [];
@@ -22,7 +22,9 @@ const handler = nc({
 					pet.petId = doc.id;
 					pet.files = pet.files.map(reference => {
 						const referenceSplitString = reference.split('/');
-						return `https://firebasestorage.googleapis.com/v0/b/pets-lovers-a2f10.appspot.com/o/${referenceSplitString[0]}%2F${referenceSplitString[1]}%2F${referenceSplitString[2]}?alt=media`
+						
+						return `https://firebasestorage.googleapis.com/v0/b/pets-lovers-a2f10.appspot.com/o/protections%2F${referenceSplitString[0]}%2F${referenceSplitString[1]}%2F${referenceSplitString[2]}?alt=media`
+						
 					})		
 					pets.push(pet);
 				});

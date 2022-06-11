@@ -109,20 +109,22 @@ export default function Adoption() {
 									<th className="bi bi-book"> Historia do Pet</th>
 									<th className="bi bi-layers-fill"> Status</th>
 									<th className="bi bi-pencil-square"> Editar</th>
+									<th className="bi bi-pencil-square"> Excluir</th>
 								</tr>
 							</thead>
 							<tbody>
 								{data?.map(pet => (
 									<tr key={pet.petId} className="table-light">
-										<th>{pet.name}</th>
-										<th>{pet.description}</th>
-										<th>{pet.state}</th>
-										<th>{pet.city}</th>
-										<th>{pet.cep}</th>
-										<th>{pet.history}</th>
+										<th className="fw-normal">{pet.name}</th>
+										<th className="text-break fw-normal">{pet.description}</th>
+										<th className="fw-normal">{pet.state}</th>
+										<th className="fw-normal">{pet.city}</th>
+										<th className="fw-normal">{pet.cep}</th>
+										<th className="text-break fw-normal">{pet.history}</th>
 										<th>
 											{
-												pet?.adopted ? <button type="button" disabled className="btn btn-outline-info"> Adotado </button> : <button type="button" disabled className="btn btn-outline-info"> Disponível</button>
+												pet?.adopted ? <button type="button" disabled className="btn btn-success ps-3 pe-3">Adotado</button>
+												: <button type="button" disabled className="btn btn-warning ps-2.1 pe-2">Disponível</button>
 											}
 										</th>
 										<th>
@@ -269,6 +271,11 @@ export default function Adoption() {
       											    </Button>
       											  </Modal.Footer>
       										</Modal>
+										</th>
+										<th>	
+											<button type="button" className="btn btn-outline-danger" onClick={() => handleShowWithDataPet(pet.petId)}>
+													Excluir
+											</button>
 										</th>
 									</tr>
 								))}
