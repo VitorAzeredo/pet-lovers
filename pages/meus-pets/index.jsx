@@ -480,7 +480,7 @@ export default function Adoption() {
 															)
 														}
 													>
-														Deletar
+														Excluir
 													</Button>
 												</Modal.Footer>
 											</Modal>

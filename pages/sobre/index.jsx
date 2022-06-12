@@ -64,7 +64,7 @@ export default function About() {
 							perspectivas.
 						</p>
 						<div className="row">
-							<div className="col-12 text-center mt-1">
+							<div className="col-12 text-center mt-5">
 								<a href="#scroll-target">
 									<button
 										type="button"
@@ -81,7 +81,7 @@ export default function About() {
 					<div className="my-1">
 						<div
 							style={{ maxWidth: 700 }}
-							classNameName="w-75 ms-auto me-auto"
+							className="w-75 ms-auto me-auto"
 							ref={ref}
 						></div>
 					</div>

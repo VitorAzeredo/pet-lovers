@@ -275,7 +275,7 @@ export default function SignIn() {
 																	updatePasswordRequest
 																}
 															>
-																Salvar
+																Enviar
 															</Button>
 														</Modal.Footer>
 													</Modal>
