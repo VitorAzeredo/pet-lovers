@@ -1,15 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
 import {
-		auth,
-		signInWithEmailAndPassword,
-		signInWithPopup,
-		GoogleAuthProvider,
-		} from "../../../core/config/firebase/client";
+	auth,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+	GoogleAuthProvider,
+	sendPasswordResetEmail,
+} from "../../../core/config/firebase/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import Modal from 'react-bootstrap/Modal'
+import { useEffect, useState } from "react";
+import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 export default function SignIn() {
@@ -17,8 +18,11 @@ export default function SignIn() {
 		register,
 		handleSubmit,
 		formState: { errors },
+		getValues,
+		setValue,
 	} = useForm();
 	const router = useRouter();
+	const [haveEmail, setHaveEmail] = useState(false);
 
 	const onSubmit = ({ email, password }) => {
 		signInWithEmailAndPassword(auth, email, password)
@@ -35,7 +39,7 @@ export default function SignIn() {
 
 	const signInWithGoogle = () => {
 		signInWithPopup(auth, new GoogleAuthProvider())
-			.then(({ user }) => {
+			.then(() => {
 				router.push("/adocao");
 			})
 			.catch((error) => {
@@ -45,8 +49,24 @@ export default function SignIn() {
 	};
 	// Offcanvas - Esqueci minha senha
 	const [show, setShow] = useState(false);
-  	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
+	const updatePasswordRequest = async () => {
+		await sendPasswordResetEmail(auth, getValues().email).then(() => {
+			alert(
+				"Instruções de como recuperar sua senha foram enviadas para seu e-mail"
+			);
+			handleClose();
+		});
+	};
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
+	useEffect(() => {
+		const haveEmail = localStorage.getItem("email");
+		if (haveEmail) {
+			setValue("email", haveEmail);
+			setHaveEmail(true);
+		}
+	});
 
 	return (
 		<div>
@@ -74,7 +94,9 @@ export default function SignIn() {
 							<div className="row ms-5 mt-5">
 								<div className="col-6 ms-5 ps-5 mb-4">
 									<h1>É rápido, É fácil!</h1>
-									<small class="ps-1">Bem-vindo de volta</small>
+									<small className="ps-1">
+										Bem-vindo de volta
+									</small>
 								</div>
 							</div>
 							<div className="row mt-4 justify-content-center">
@@ -85,7 +107,9 @@ export default function SignIn() {
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											<h7 class="fw-bold">Entrar com Google</h7>
+											<h7 className="fw-bold">
+												Entrar com Google
+											</h7>
 											<i className="ms-2 bi bi-google text-red"></i>
 										</button>
 									</div>
@@ -94,7 +118,7 @@ export default function SignIn() {
 							<div className="row mt-4">
 								<div className="col-12">
 									<div className="text-center">
-										<p class="fw-bold">ou</p>
+										<p className="fw-bold">ou</p>
 									</div>
 									<form
 										onSubmit={handleSubmit(onSubmit)}
@@ -153,6 +177,29 @@ export default function SignIn() {
 															className="form-check-input"
 															type="checkbox"
 															id="gridCheck"
+															checked={haveEmail}
+															onChange={(e) => {
+																if (
+																	e.target
+																		.checked
+																) {
+																	localStorage.setItem(
+																		"email",
+																		getValues()
+																			.email
+																	);
+																	setHaveEmail(
+																		true
+																	);
+																} else {
+																	localStorage.removeItem(
+																		"email"
+																	);
+																	setHaveEmail(
+																		false
+																	);
+																}
+															}}
 														/>
 														<label
 															className="form-check-label customLink text-dark"
@@ -169,42 +216,73 @@ export default function SignIn() {
 													>
 														Alterar senha
 													</a>
-													<Modal show={show} onHide={handleClose}>
-      												  <Modal.Header closeButton className="bg-light">
-      												    <Modal.Title>Ola, vamos solicitar uma senha nova?</Modal.Title>
-      												  </Modal.Header>
-      												  	<Modal.Body>
+													<Modal
+														show={show}
+														onHide={handleClose}
+													>
+														<Modal.Header
+															closeButton
+															className="bg-light"
+														>
+															<Modal.Title>
+																Ola, deseja
+																solicitar uma
+																nova senha?
+															</Modal.Title>
+														</Modal.Header>
+														<Modal.Body>
 															<form>
 																<div className="col-md-12 mb-3">
-																	<label htmlFor="name" className="form-label">
-																		Por favor insira o e-mail cadastrado:
+																	<label
+																		htmlFor="email"
+																		className="form-label"
+																	>
+																		Por
+																		favor
+																		insira o
+																		e-mail
+																		cadastrado:
 																	</label>
 																	<input
 																		type="text"
 																		className="form-control"
-																		id="name"
+																		id="email"
 																		placeholder="Ex: pet@gmail.com"
-																		{...register("name", {
-																			required: "Requerido",
-																			minLength: 1
-																		  })}
-																	/>																
+																		{...register(
+																			"email",
+																			{
+																				required:
+																					"Requerido",
+																				minLength: 1,
+																			}
+																		)}
+																	/>
 																</div>
 															</form>
 														</Modal.Body>
-      												  <Modal.Footer>
-      												    <Button variant="dark" onClick={handleClose}>
-      												      Fechar
-      												    </Button>
-      												    <Button variant="info" onClick={handleClose}>
-      												      Salvar
-      												    </Button>
-      												  </Modal.Footer>
-      												</Modal>
+														<Modal.Footer>
+															<Button
+																variant="dark"
+																onClick={
+																	handleClose
+																}
+															>
+																Fechar
+															</Button>
+															<Button
+																variant="info"
+																onClick={
+																	updatePasswordRequest
+																}
+															>
+																Salvar
+															</Button>
+														</Modal.Footer>
+													</Modal>
 												</div>
 											</div>
 										</div>
-										<div class="row justify-content-center">			
+										<div className="row justify-content-center">
 											<div className="d-grid gap-2 col-3 mx-auto mt-5 mb-4">
 												<button
 													type="submit"
@@ -213,7 +291,7 @@ export default function SignIn() {
 													Entrar
 												</button>
 											</div>
-										</div>	
+										</div>
 									</form>
 								</div>
 							</div>

@@ -6,12 +6,14 @@ import { NavbarPerfilPopover } from "../NavbarPerfilPopover";
 import { NavIconMenu } from "../NavIconMenu";
 import { NavItem } from "../NavItem";
 import { CustomOverlay } from "../Overlay";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
 	const [isLogged, setIsLogged] = useState(false);
 	const [show, setShow] = useState(false);
 	const [urlImgUser, setUrlImgUser] = useState("");
 	const [emailUser, setEmailUser] = useState("");
+	const router = useRouter();
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -28,12 +30,14 @@ export default function Navbar() {
 				setEmailUser(extractName(user.email));
 			} else {
 				setIsLogged(false);
+				router.push("/");
 			}
 		});
 	}, []);
 
 	const signOut = () => {
 		auth.signOut();
+		router.push("/");
 	};
 
 	return (

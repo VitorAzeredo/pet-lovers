@@ -189,8 +189,8 @@ export default function Donation() {
 									Selecionar...
 								</option>
 								<option value="SP">São Paulo</option>
-								<option value="SP">Rio de Janeiro</option>
-								<option value="SP">Recife</option>
+								<option value="RJ">Rio de Janeiro</option>
+								<option value="RF">Recife</option>
 							</select>
 							{errors.state && (
 								<span className="text-danger">

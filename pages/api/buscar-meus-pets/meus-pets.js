@@ -10,20 +10,34 @@ const handler = nc({
 		res.status(404).end("Page is not found");
 	},
 }).get(async (req, res) => {
+	const { authorization } = req.headers;
+
+	let uid;
+
+	try {
+		const decodedToken = await admin.auth().verifyIdToken(authorization);
+
+		uid = decodedToken.uid;
+	} catch (error) {
+		return res.status(401).json([
+			{
+				name: "instance.auth.error",
+				userMessage: "Token expirado ou inválido",
+			},
+		]);
+	}
+
 	try {
 		admin
 			.firestore()
 			.collection("pets")
+			.where("owner", "==", uid)
 			.get()
 			.then((snapshot) => {
 				const pets = [];
 				snapshot.forEach((doc) => {
 					const pet = doc.data();
 					pet.petId = doc.id;
-					pet.files = pet.files.map(reference => {
-						const referenceSplitString = reference.split('/');
-						return `https://firebasestorage.googleapis.com/v0/b/pets-lovers-a2f10.appspot.com/o/${referenceSplitString[0]}%2F${referenceSplitString[1]}%2F${referenceSplitString[2]}?alt=media`
-					})		
 					pets.push(pet);
 				});
 				res.status(200).json(pets);
