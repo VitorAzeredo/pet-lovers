@@ -9,7 +9,8 @@ import { useForm } from "react-hook-form";
 
 // Veridica se o usuário está logado e habilita a opção de cadastrar um novo pet, e editar.
 export default function Adoption() {
-	const { register, setValue, getValues } = useForm();
+	const { register, setValue, getValues, watch } = useForm();
+	const [checkIsAdopted, setCheckIsAdopted] = useState(false);
 	const [isSignin, setIsSignin] = useState(false);
 	const [data, setData] = useState(null);
 	const [show, setShow] = useState(false);
@@ -22,6 +23,11 @@ export default function Adoption() {
 			setValue(key, value);
 		}
 	};
+
+	useEffect(() => {
+		const subscription = watch(({adopted}) => setCheckIsAdopted(adopted));
+		return () => subscription.unsubscribe();
+	  }, [watch]);
 
 	const handleDeletePet = (petId) => {
 		deletePet(petId);
@@ -429,6 +435,28 @@ export default function Adoption() {
 																</option>
 															</select>
 														</div>
+														{checkIsAdopted ? (<div className="col-12 mb-3">
+															<label
+																htmlFor="inputHistory"
+																className="form-label"
+															>
+																Como foi sua experiência?
+															</label>
+															<textarea
+																type="text"
+																className="form-control"
+																id="inputHistory"
+																placeholder="Conte um pouco para nós sobre sua experiência na PetLovers"
+																defaultValue=""
+																{...register(
+																	"experience",
+																	{
+																		required: true,
+																	}
+																)}
+															/>
+														</div>) : null}
+
 													</form>
 												</Modal.Body>
 												<Modal.Footer>

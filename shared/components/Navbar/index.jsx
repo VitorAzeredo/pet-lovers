@@ -30,7 +30,6 @@ export default function Navbar() {
 				setEmailUser(extractName(user.email));
 			} else {
 				setIsLogged(false);
-				router.push("/");
 			}
 		});
 	}, []);

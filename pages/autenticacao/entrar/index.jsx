@@ -107,7 +107,7 @@ export default function SignIn() {
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											<h7 className="fw-bold">
+											<h7 className="fw-bolder">
 												Entrar com Google
 											</h7>
 											<i className="ms-2 bi bi-google text-red"></i>

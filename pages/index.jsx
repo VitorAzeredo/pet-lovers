@@ -6,10 +6,15 @@ import { auth } from "../core/config/firebase/client";
 import { Offcanvas } from "react-bootstrap";
 import { CustomOverlay } from "../shared/components/Overlay";
 import { NavbarPerfilPopover } from "../shared/components/NavbarPerfilPopover";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import ModalHelper from "../shared/components/ModalHelper";
+
 
 export default function Home() {
 	const [isLogged, setIsLogged] = useState(false);
 	const [show, setShow] = useState(false);
+	const [showModal, setShowModal] = useState(false);
 	const [urlImgUser, setUrlImgUser] = useState("");
 	const [emailUser, setEmailUser] = useState("");
 	const extractName = (email) => {
@@ -18,6 +23,8 @@ export default function Home() {
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const handleCloseModal = () => setShowModal(false);
+	const handleShowModal = () => setShowModal(true);
 
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
@@ -184,6 +191,7 @@ export default function Home() {
 									</Link>
 								</div>
 							</div>
+							<ModalHelper/>
 						</div>
 						<div
 							className={`${styles.bgPrincipalDog} fullHeight d-none col-sm-6 pt-4 ps-5 pe-5 pb-4 justify-content-end d-sm-flex`}
@@ -247,9 +255,9 @@ export default function Home() {
 										popId="pop-thumbnail"
 										urlImgUser={urlImgUser}
 									>
-										<NavbarPerfilPopover
-											signOutAndRoute={signOut}
-										/>
+									<NavbarPerfilPopover
+										signOutAndRoute={signOut}
+									/>
 									</CustomOverlay>
 								) : (
 									<Link href="/autenticacao/entrar">
