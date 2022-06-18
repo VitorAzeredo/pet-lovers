@@ -35,8 +35,13 @@ export default function About() {
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">Cães de trabalho: conheça as 5 principais profissões desses animais.</h1>
                                     <div class="text-muted fst-italic mb-2">17 de Maio, 2022</div>
+<<<<<<< HEAD
                                     <a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a>
                                     <a class="badge bg-dark text-decoration-none link-light">Veterinária</a>
+=======
+                                    <a class="badge bg-dark text-decoration-none link-light me-1" href="">Médicina</a>
+                                    <a class="badge bg-dark text-decoration-none link-light" href="">Veterinária</a>
+>>>>>>> develop
                                 </header>
                                 <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/trabalho/resgate.jpg" alt="..." /></figure>
                                 <section class="mb-5">
