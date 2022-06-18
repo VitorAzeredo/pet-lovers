@@ -20,14 +20,12 @@ export default function About() {
                                     <div class="fw-bold">Ana Letícia Poletto</div>
                                     <div class="text-muted mb-2">Médica - Veterinária</div>
                                     <Link href="/artigos">
-                                    <a>
 							    	    <button
 							    	    	type="button"
 							    	    	className="btn btn-info"
 							    	    >
 							    	    	Voltar aos artigos?
 							    	    </button>
-							        </a>
                                     </Link>
                                 </div>
                             </div>
@@ -37,8 +35,8 @@ export default function About() {
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">Cães de trabalho: conheça as 5 principais profissões desses animais.</h1>
                                     <div class="text-muted fst-italic mb-2">17 de Maio, 2022</div>
-                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a></Link>
-                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light">Veterinária</a></Link>
+                                    <a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a>
+                                    <a class="badge bg-dark text-decoration-none link-light">Veterinária</a>
                                 </header>
                                 <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/trabalho/resgate.jpg" alt="..." /></figure>
                                 <section class="mb-5">
@@ -83,7 +81,7 @@ export default function About() {
                                 </section>
                             </article>
                                 <Link href="/artigos">
-                                    <a>
+                                        <a>
                                         <button
                                             type="button"
                                             className="btn btn-info"
