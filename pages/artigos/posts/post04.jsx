@@ -19,7 +19,8 @@ export default function About() {
                                 <div class="ms-3">
                                     <div class="fw-bold">Ana Letícia Poletto</div>
                                     <div class="text-muted mb-2">Médica - Veterinária</div>
-                                    <a href="/artigos">
+                                    <Link href="/artigos">
+                                    <a>
 							    	    <button
 							    	    	type="button"
 							    	    	className="btn btn-info"
@@ -27,6 +28,7 @@ export default function About() {
 							    	    	Voltar aos artigos?
 							    	    </button>
 							        </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -35,8 +37,8 @@ export default function About() {
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">Cães de trabalho: conheça as 5 principais profissões desses animais.</h1>
                                     <div class="text-muted fst-italic mb-2">17 de Maio, 2022</div>
-                                    <a class="badge bg-dark text-decoration-none link-light me-1" href="#!">Médicina</a>
-                                    <a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a>
+                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a></Link>
+                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light">Veterinária</a></Link>
                                 </header>
                                 <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/trabalho/resgate.jpg" alt="..." /></figure>
                                 <section class="mb-5">
@@ -80,14 +82,16 @@ export default function About() {
                                     <p class="fs-5 mb-4">Normalmente, os cães de serviço são identificados com um colete que mostra que eles estão em horário de trabalho. É incrível pensar que esses animais têm capacidades inimagináveis e podem fazer tanto pelo ser humano. Sempre que avistar um cão, lembre-se de perguntar se ele está em serviço, pois tudo faz parte do treinamento, e uma atitude inofensiva pode desencadear algo desagradável. Por mais carismáticos que eles sejam, cães em serviço não podem ser acariciados ou alimentados, pois estão trabalhando e são muito felizes desempenhando sua função.</p>
                                 </section>
                             </article>
-                                <a href="/artigos">
-							    	<button
-							    		type="button"
-							    		className="btn btn-info"
-							    	>
-							    		Voltar aos artigos?
-							    	</button>
-							    </a>
+                                <Link href="/artigos">
+                                    <a>
+                                        <button
+                                            type="button"
+                                            className="btn btn-info"
+                                        >
+                                            Voltar aos artigos?
+                                        </button>
+                                    </a>
+                                </Link>
                         </div>
                     </div>
                 </div>

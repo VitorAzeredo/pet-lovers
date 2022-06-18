@@ -28,7 +28,7 @@ export default function About() {
 		<>
 			<div className="row">
 				<div className="col-6 mb-3">
-					<h1 className="fw-bolder text-center mb-2 mt-5">
+					<h1 className="fw-bolder text-center mb-1 mt-5">
 						Sobre nós
 					</h1>
 				</div>
@@ -36,21 +36,21 @@ export default function About() {
 			<div className="row">
 				<div className="col-12 col-lg-6">
 					<div className="my-5">
-						<p className="lead fw-normal text-muted mb-4">
+						<p className="lead fw-normal fs-3 text-muted mb-4">
 							A Pet-Lovers existe para trazer amor e alegria para
 							pets e pessoas, através da conexão entre eles...
 						</p>
-						<p className="lead fw-normal text-muted mb-4">
+						<p className="lead fw-normal fs-3 text-muted mb-4">
 							Acreditamos que esse vínculo e muito forte e
 							precioso, por isso tentamos recriar uma experiencia
 							única para os usuários da plataforma.
 						</p>
-						<p className="lead fw-normal text-muted mb-4">
+						<p className="lead fw-normal fs-3 text-muted mb-4">
 							Cada adoção que é feita e uma nova história que
 							começa, e não existe limites para viver esse
 							momento, pois tudo e possível se você acreditar!
 						</p>
-						<p className="lead fw-normal text-muted mb-4">
+						<p className="lead fw-normal fs-3 text-muted mb-4">
 							Nossa missão é resgatar esse sonho de um futuro
 							melhor conectando e criando laços tão fortes e
 							importantes quanto qualquer outro que já existiu...
@@ -58,23 +58,11 @@ export default function About() {
 							pode ser vivenciado e apreciado quando damos
 							importância as coisas certas.
 						</p>
-						<p className="lead fw-normal text-muted mb-4">
+						<p className="lead fw-normal fs-3 text-muted mb-4">
 							Se de essa chance de viver novas experiencias com um
 							novo amiguinho que vai mudar a sua vida e suas
 							perspectivas.
 						</p>
-						<div className="row">
-							<div className="col-12 text-center mt-5">
-								<a href="#scroll-target">
-									<button
-										type="button"
-										className="btn btn-info"
-									>
-										Nossa Historia
-									</button>
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div className="col-6 d-none d-lg-block">

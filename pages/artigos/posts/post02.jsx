@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Navbar from "../../../shared/components/Navbar";
 
 export default function About() {
@@ -19,14 +20,16 @@ export default function About() {
                                 <div class="ms-3">
                                     <div class="fw-bold">Kelly Maiara Lopes Carreiro</div>
                                     <div class="text-muted mb-2">Médica - Veterinária</div>
-                                    <a href="/artigos">
-							    	    <button
-							    	    	type="button"
-							    	    	className="btn btn-info"
-							    	    >
-							    	    	Voltar aos artigos?
-							    	    </button>
-							        </a>
+                                        <Link href="/artigos">
+                                            <a>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-info"
+                                                >
+                                                    Voltar aos artigos?
+                                                </button>
+                                            </a>
+                                        </Link>
                                 </div>
                             </div>
                         </div>
@@ -35,10 +38,12 @@ export default function About() {
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">Cuidados com os pets na Páscoa</h1>
                                     <div class="text-muted fst-italic mb-2">18 Abril, 2022</div>
-                                    <a class="badge bg-dark text-decoration-none link-light me-1" href="#!">Médicina</a>
-                                    <a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a>
+                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a></Link>
+                                    <Link href="#!"><a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a></Link>
                                 </header>
+
                                 <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/pascoa.png" alt="..." /></figure>
+
                                 <section class="mb-5">
                                     <p class="fs-5 mb-4">A Páscoa é uma data muito comemorada pelos brasileiros, e o que não pode faltar é o ovo de chocolate para confraternizar com os familiares e amigos. Mas o que poucos sabem é que os nossos pets não podem comer chocolates, nem mesmo em pequenas quantidades.</p>
 
@@ -66,19 +71,21 @@ export default function About() {
 
                                 </section>
                             </article>
-                                <a href="/artigos">
-							    	<button
-							    		type="button"
-							    		className="btn btn-info"
-							    	>
-							    		Voltar aos artigos?
-							    	</button>
-							    </a>
+                                <Link href="/artigos">
+                                    <a>
+                                        <button
+                                            type="button"
+                                            className="btn btn-info"
+                                        >
+                                            Voltar aos artigos?
+                                        </button>
+                                    </a>
+                                </Link>
                         </div>
                     </div>
                 </div>
             </section>
-
+            
             </main>
         </div>
 	);

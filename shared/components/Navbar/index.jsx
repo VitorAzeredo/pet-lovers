@@ -135,7 +135,7 @@ export default function Navbar() {
 							<NavbarPerfilPopover signOutAndRoute={signOut} />
 						</CustomOverlay>
 					) : (
-						<Link href="/autenticacao/entrar">
+						<Link href="../autenticacao/entrar">
 							<a className="customLink text-dark bg-info p-2 rounded">
 								Entrar
 							</a>

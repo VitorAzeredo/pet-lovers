@@ -210,12 +210,9 @@ export default function SignIn() {
 													</div>
 												</div>
 												<div className="col-6 text-end">
-													<a
-														onClick={handleShow}
-														className="customLink text-dark"
-													>
-														Alterar senha
-													</a>
+													<Link href="">
+														<a onClick={handleShow} className="customLink text-dark">Alterar senha</a>
+													</Link>
 													<Modal
 														show={show}
 														onHide={handleClose}

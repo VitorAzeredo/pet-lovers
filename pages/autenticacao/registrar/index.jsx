@@ -154,7 +154,7 @@ export default function SignUp() {
 								<div className="col-12 text-center">
 									já tem uma conta? <br />
 									<Link href="/autenticacao/entrar">
-										<a href="" className="customLink">
+										<a href="#" className="customLink">
 											Entrar
 										</a>
 									</Link>

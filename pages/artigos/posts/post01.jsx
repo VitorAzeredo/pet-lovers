@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Navbar from "../../../shared/components/Navbar";
 
 export default function About() {
@@ -19,14 +20,16 @@ export default function About() {
                                 <div class="ms-3">
                                     <div class="fw-bold">Ana Letícia Poletto</div>
                                     <div class="text-muted mb-2">Médica - Veterinária</div>
-                                    <a href="/artigos">
-							    	    <button
-							    	    	type="button"
-							    	    	className="btn btn-info"
-							    	    >
-							    	    	Voltar aos artigos?
-							    	    </button>
-							        </a>
+                                    <Link href="/artigos">
+                                        <a>
+                                            <button
+                                                type="button"
+                                                className="btn btn-info"
+                                            >
+                                                Voltar aos artigos?
+                                            </button>
+                                        </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -34,11 +37,13 @@ export default function About() {
                             <article>
                                 <header class="mb-4">
                                     <h1 class="fw-bolder mb-1">O que perguntar ao veterinário na 1ª consulta do seu pet.</h1>
-                                    <div class="text-muted fst-italic mb-2">12 Novembro, 2021</div>
-                                    <a class="badge bg-dark text-decoration-none link-light me-1" href="#!">Médicina</a>
-                                    <a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a>
+                                        <div class="text-muted fst-italic mb-2">12 Novembro, 2021</div>
+                                            <Link href="#!"><a class="badge bg-dark text-decoration-none link-light me-1">Médicina</a></Link>
+                                            <Link href="#!"><a class="badge bg-dark text-decoration-none link-light" href="#!">Veterinária</a></Link>
                                 </header>
+
                                 <figure class="mb-4"><img class="img-fluid rounded mb-5 mb-lg-0" src="/assets/artigos_destaque/veterinario.webp" alt="..." /></figure>
+
                                 <section class="mb-5">
                                     <p class="fs-5 mb-4">Quando recebemos um novo filhote em casa, nossas rotinas mudam bastante. Precisamos adaptar o ambiente para que seja um lugar favorável ao crescimento e desenvolvimento saudável desse novo integrante da família. Junto aos cuidados, é de extrema importância que o filhote passe por uma consulta veterinária, que será de grande valia para que o tutor entenda melhor o animalzinho e possa oferecer todos os cuidados necessários para essa fase.</p>
 
@@ -79,7 +84,8 @@ export default function About() {
 Reunir junto ao médico-veterinário todas as informações sobre essa fase da vida e os cuidados com o novo integrante fará com que o tutor se sinta mais seguro e tenha mais confiança, além de proporcionar maior bem-estar e saúde ao pet.</p>
                                 </section>
                             </article>
-                                <a href="/artigos">
+                            <Link href="/artigos">
+                                <a>
 							    	<button
 							    		type="button"
 							    		className="btn btn-info"
@@ -87,6 +93,7 @@ Reunir junto ao médico-veterinário todas as informações sobre essa fase da v
 							    		Voltar aos artigos?
 							    	</button>
 							    </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
