@@ -296,7 +296,7 @@ export default function SignIn() {
 								<div className="col-12 text-center">
 									Não tem uma conta? <br />
 									<Link href="/autenticacao/registrar">
-										<a className="customLink">
+										<a href="" className="customLink">
 											Registrar-se
 										</a>
 									</Link>
