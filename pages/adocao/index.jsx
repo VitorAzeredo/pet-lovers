@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { auth } from "../../core/config/firebase/client";
 import Base from "../../shared/layout/Base";
+import { SelectFilter } from "../../shared/components/SelectFilter";
+import { cities, allCities } from "../../shared/static/cities";
+import { states } from "../../shared/static/states";
 
 export async function getServerSideProps() {
 	const res = await fetch("http://localhost:3000/api/busca-pets/lista-pets");
@@ -16,6 +19,10 @@ Adoption.getLayout = function getLayout(page) {
 };
 
 export default function Adoption({ data }) {
+	const [copyData, setCopyData] = useState(data);
+	const [statesStatic, setStatesStatic] = useState([]);
+	const [citiesStatic, setCitiesStatic] = useState([]);
+	const [filters, setFilters] = useState(["", ""]);
 	const [show, setShow] = useState(false);
 	const [pet, setPet] = useState({});
 	const [activePhoto, setActivePhoto] = useState(0);
@@ -23,6 +30,59 @@ export default function Adoption({ data }) {
 
 	const [lottie, setLottie] = useState(null);
 	const ref = useRef(null);
+
+	const changeFilterStateOrCity = (value, stateOrCity) => {
+		const filtersCopy = [...filters];
+		if (stateOrCity === "state") {
+			filtersCopy[0] = value;
+			filtersCopy[1] = "";
+			if (value.length === 0) {
+				setCitiesStatic(allCities);
+			} else {
+				setCitiesStatic(cities[value]);
+			}
+		} else {
+			filtersCopy[1] = value;
+		}
+
+		setFilters(filtersCopy);
+	};
+
+	useEffect(() => {
+		if (filters[0].length === 0 && filters[1].length === 0) {
+			return setCopyData(data);
+		}
+
+		const dataFilteredWithState = data.filter(
+			(petData) => petData.state === filters[0]
+		);
+
+		if (filters[1].length > 0) {
+			if (filters[0].length > 0) {
+				const dataFilteredWithCity = dataFilteredWithState.filter(
+					(petData) => petData.city === filters[1]
+				);
+
+				if (dataFilteredWithCity.length > 0) {
+					return setCopyData(dataFilteredWithCity);
+				}
+			} else {
+				const dataFilteredWithCity = data.filter(
+					(petData) => petData.city === filters[1]
+				);
+
+				if (dataFilteredWithCity.length > 0) {
+					return setCopyData(dataFilteredWithCity);
+				}
+			}
+		}
+		setCopyData(dataFilteredWithState);
+	}, [data, filters]);
+
+	useEffect(() => {
+		setStatesStatic(states);
+		setCitiesStatic(allCities);
+	}, []);
 
 	useEffect(() => {
 		return auth.onAuthStateChanged((user) => {
@@ -74,14 +134,10 @@ export default function Adoption({ data }) {
 	return (
 		<>
 			<div className="row mt-4">
-				{data?.length > 0 && (
-					<div className="col-12 text-center">
-						<h1>Um amigo para chamar de seu</h1>
-						<p className="fs-5">
-							Esses pets estão esperando por você
-						</p>
-					</div>
-				)}
+				<div className="col-12 text-center">
+					<h1>Um amigo para chamar de seu</h1>
+					<p className="fs-5">Esses pets estão esperando por você</p>
+				</div>
 				<div className="col-12 text-end">
 					<p className="">
 						{" "}
@@ -95,9 +151,29 @@ export default function Adoption({ data }) {
 					</p>
 				</div>
 			</div>
-			{data?.length > 0 && (
+			<div className="row">
+				<div className="col-2">
+					<SelectFilter
+						wordToFilter={(value) =>
+							changeFilterStateOrCity(value, "state")
+						}
+						titleSelect="Estado"
+						options={statesStatic}
+					/>
+				</div>
+				<div className="col-2">
+					<SelectFilter
+						wordToFilter={(value) =>
+							changeFilterStateOrCity(value, "city")
+						}
+						titleSelect="Cidade"
+						options={citiesStatic}
+					/>
+				</div>
+			</div>
+			{copyData?.length > 0 && (
 				<div className="row mt-4">
-					{data.map((petMapped) => (
+					{copyData.map((petMapped) => (
 						<div className="col-sm-3 mb-3" key={petMapped.petId}>
 							<div className="card shadow border-info">
 								<div className="card-body">
@@ -135,7 +211,7 @@ export default function Adoption({ data }) {
 					))}
 				</div>
 			)}
-			{!data?.length && (
+			{!copyData?.length && (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para adotar</h2>
 					<div
@@ -203,10 +279,13 @@ export default function Adoption({ data }) {
 						<h4 className="m-0">História do pet</h4>
 						<p>{pet.history}</p>
 					</div>
-					<div>
-						<h4 className="m-0">Contatos para adoção</h4>
-						<p>{pet.ownerName}</p>
-						<p>{pet.ownerEmail}</p>
+					<div className="my-2">
+						<h4>Contatos para adoção</h4>
+						<p className="m-0">{pet.ownerName}</p>
+						<p className="m-0">{pet.ownerEmail}</p>
+						<p className="m-0">
+							Estado: {pet.state} - Cidade: {pet.city}
+						</p>
 					</div>
 					{pet.adopted ? (
 						<div>
