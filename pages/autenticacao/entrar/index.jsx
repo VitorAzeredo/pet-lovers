@@ -107,10 +107,10 @@ export default function SignIn() {
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											<h7 className="fw-bold">
+											<p className="fw-bold fs-7 mt-2">
 												Entrar com Google
-											</h7>
-											<i className="ms-2 bi bi-google text-red"></i>
+												<i className="ms-2 bi bi-google text-red"></i>
+											</p>
 										</button>
 									</div>
 								</div>
@@ -296,7 +296,7 @@ export default function SignIn() {
 								<div className="col-12 text-center">
 									Não tem uma conta? <br />
 									<Link href="/autenticacao/registrar">
-										<a href="" className="customLink">
+										<a className="customLink">
 											Registrar-se
 										</a>
 									</Link>
