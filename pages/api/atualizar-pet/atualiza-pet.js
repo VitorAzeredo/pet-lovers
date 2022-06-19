@@ -12,49 +12,59 @@ const handler = nc({
 	onNoMatch: (req, res) => {
 		res.status(404).end("Page is not found");
 	},
-})
-	.patch(async (req, res) => {
-		const data = { body: JSON.parse(req.body), headers: req.headers };
+}).patch(async (req, res) => {
+	const data = { body: JSON.parse(req.body), headers: req.headers };
 
-		const result = v.validate(data, schema);
+	const result = v.validate(data, schema);
 
-		if (result.errors.length) {
-			const fields = [];
-			result.errors.forEach((e) => {
-				const error = {
-					name: e.property,
-					userMessage: e.message,
-				};
-				fields.push(error);
-			});
-			return res.status(400).json(fields);
-		}
+	if (result.errors.length) {
+		const fields = [];
+		result.errors.forEach((e) => {
+			const error = {
+				name: e.property,
+				userMessage: e.message,
+			};
+			fields.push(error);
+		});
+		return res.status(400).json(fields);
+	}
 
-		try {
-			await admin
-				.auth()
-				.verifyIdToken(data.headers.authorization);
-		} catch (error) {
-			return res.status(401).json([
-				{
-					name: "instance.auth.error",
-					userMessage: "Token expirado ou inválido",
-				},
-			]);
-		}
+	try {
+		await admin.auth().verifyIdToken(data.headers.authorization);
+	} catch (error) {
+		return res.status(401).json([
+			{
+				name: "instance.auth.error",
+				userMessage: "Token expirado ou inválido",
+			},
+		]);
+	}
 
-		const { name, description, state, city, cep, history, adopted, petId } = data.body;
+	const {
+		name,
+		description,
+		state,
+		city,
+		cep,
+		history,
+		adopted,
+		petId,
+		experience,
+	} = data.body;
 
-		await admin
-			.firestore()
-			.collection("pets")
-			.doc(petId)
-			.update({
-				name, description, state, city, cep, history, adopted,
-				updatedAt: admin.firestore.Timestamp.now(),
-			});
+	await admin.firestore().collection("pets").doc(petId).set({
+		name,
+		description,
+		state,
+		city,
+		cep,
+		history,
+		adopted,
+		experience,
+		updatedAt: admin.firestore.Timestamp.now(),
+	});
 
-		res.status(201).send();
-	})
+	res.status(201).send();
+});
 
 export default handler;
