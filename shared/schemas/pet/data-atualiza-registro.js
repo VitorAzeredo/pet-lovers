@@ -52,8 +52,12 @@ export default {
 					type: "string",
 					minLength: 8,
 					maxLength: 50,
-					required: true
-				}
+					required: true,
+				},
+				experience: {
+					type: "string",
+					maxLength: 300,
+				},
 			},
 		},
 		headers: {

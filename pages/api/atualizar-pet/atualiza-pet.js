@@ -7,6 +7,7 @@ const v = new Validator();
 
 const handler = nc({
 	onError: (err, req, res, next) => {
+		console.log(err);
 		res.status(500).end("Something broke!");
 	},
 	onNoMatch: (req, res) => {
@@ -52,7 +53,7 @@ const handler = nc({
 		experience,
 	} = data.body;
 
-	await admin.firestore().collection("pets").doc(petId).set({
+	await admin.firestore().collection("pets").doc(petId).update({
 		name,
 		description,
 		state,

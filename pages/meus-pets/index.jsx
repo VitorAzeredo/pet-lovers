@@ -25,9 +25,9 @@ export default function Adoption() {
 	};
 
 	useEffect(() => {
-		const subscription = watch(({adopted}) => setCheckIsAdopted(adopted));
+		const subscription = watch(({ adopted }) => setCheckIsAdopted(adopted));
 		return () => subscription.unsubscribe();
-	  }, [watch]);
+	}, [watch]);
 
 	const handleDeletePet = (petId) => {
 		deletePet(petId);
@@ -73,8 +73,17 @@ export default function Adoption() {
 	};
 
 	const sendUpdatePetAndCloseModal = async () => {
-		const { name, description, state, city, cep, history, adopted, petId } =
-			getValues();
+		const {
+			name,
+			description,
+			state,
+			city,
+			cep,
+			history,
+			adopted,
+			petId,
+			experience,
+		} = getValues();
 
 		const token = await getUserToken();
 		await fetch("/api/atualizar-pet/atualiza-pet", {
@@ -91,6 +100,7 @@ export default function Adoption() {
 				history,
 				adopted,
 				petId,
+				experience,
 			}),
 		});
 		const indexToUpdate = data.findIndex((pet) => pet.petId === petId);
@@ -435,28 +445,30 @@ export default function Adoption() {
 																</option>
 															</select>
 														</div>
-														{checkIsAdopted ? (<div className="col-12 mb-3">
-															<label
-																htmlFor="inputHistory"
-																className="form-label"
-															>
-																Como foi sua experiência?
-															</label>
-															<textarea
-																type="text"
-																className="form-control"
-																id="inputHistory"
-																placeholder="Conte um pouco para nós sobre sua experiência na PetLovers"
-																defaultValue=""
-																{...register(
-																	"experience",
-																	{
-																		required: true,
-																	}
-																)}
-															/>
-														</div>) : null}
-
+														{checkIsAdopted ? (
+															<div className="col-12 mb-3">
+																<label
+																	htmlFor="inputHistory"
+																	className="form-label"
+																>
+																	Como foi sua
+																	experiência?
+																</label>
+																<textarea
+																	type="text"
+																	className="form-control"
+																	id="inputHistory"
+																	placeholder="Conte um pouco para nós sobre sua experiência na PetLovers"
+																	defaultValue=""
+																	{...register(
+																		"experience",
+																		{
+																			required: true,
+																		}
+																	)}
+																/>
+															</div>
+														) : null}
 													</form>
 												</Modal.Body>
 												<Modal.Footer>
