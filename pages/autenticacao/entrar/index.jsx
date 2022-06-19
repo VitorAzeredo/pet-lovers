@@ -107,10 +107,10 @@ export default function SignIn() {
 											type="button"
 											onClick={signInWithGoogle}
 										>
-											<h7 className="fw-bold">
+											<p className="fw-bold fs-7 mt-2">
 												Entrar com Google
-											</h7>
-											<i className="ms-2 bi bi-google text-red"></i>
+												<i className="ms-2 bi bi-google text-red"></i>
+											</p>
 										</button>
 									</div>
 								</div>
@@ -210,12 +210,9 @@ export default function SignIn() {
 													</div>
 												</div>
 												<div className="col-6 text-end">
-													<a
-														onClick={handleShow}
-														className="customLink text-dark"
-													>
-														Alterar senha
-													</a>
+													<Link href="">
+														<a onClick={handleShow} className="customLink text-dark">Alterar senha</a>
+													</Link>
 													<Modal
 														show={show}
 														onHide={handleClose}

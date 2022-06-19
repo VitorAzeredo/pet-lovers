@@ -67,7 +67,6 @@ export default function About() {
                                         <div className="text-center mb-3">
                                             <div className="fw-bolder">Seu formulario foi enviado com sucesso!</div>
                                             <br />
-                                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                         </div>
                                     </div>
                                     <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Houve uma falha no envio da sua mensagem!</div></div>

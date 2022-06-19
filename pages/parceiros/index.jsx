@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Base from "../../shared/layout/Base";
 
 About.getLayout = function getLayout(page) {
@@ -22,12 +23,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_amazon.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.amazon.com.br/"
-							>
-								Amazon
-							</a>
+							<Link href="https://www.amazon.com.br/">	
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Amazon</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -37,12 +35,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_google.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.google.com/intl/pt-BR_br/business/"
-							>
-								Google
-							</a>
+							<Link href="https://www.google.com/intl/pt-BR_br/business/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Google</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -52,12 +47,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_facebook.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://about.facebook.com/br/meta/"
-							>
-								Facebook
-							</a>
+							<Link href="https://about.facebook.com/br/meta/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Facebook</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -67,12 +59,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_ambev.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.ambev.com.br/"
-							>
-								Ambev
-							</a>
+							<Link href="https://www.ambev.com.br/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Ambev</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -82,12 +71,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_cocacola.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.coca-cola.com.br/"
-							>
-								Coca-Cola
-							</a>
+							<Link href="https://www.coca-cola.com.br/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Coca-Cola</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -97,12 +83,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_xp.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.xpi.com.br/"
-							>
-								XP Investimentos
-							</a>
+							<Link href="https://www.xpi.com.br/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">XP Investimentos</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -112,12 +95,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_mercado.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.mercadobitcoin.com.br/"
-							>
-								Mercado Bitcoin
-							</a>
+							<Link href="https://www.mercadobitcoin.com.br/">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Mercado Bitcoin</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -127,12 +107,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_microsoft.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.microsoft.com/pt-br"
-							>
-								Microsoft
-							</a>
+							<Link href="https://www.microsoft.com/pt-br">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Microsoft</a>
+							</Link>
 						</div>
 					</div>
 					<div className="col-lg-4">
@@ -142,12 +119,9 @@ export default function About() {
 								src="/assets/parceiros/parceiro_binance.jpg"
 								alt="..."
 							/>
-							<a
-								className="h3 fw-bolder text-decoration-none link-dark stretched-link"
-								href="https://www.binance.com/pt-BR"
-							>
-								Binance
-							</a>
+							<Link href="https://www.binance.com/pt-BR">
+								<a className="h3 fw-bolder text-decoration-none link-dark stretched-link">Binance</a>
+							</Link>
 						</div>
 					</div>
 				</div>

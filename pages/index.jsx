@@ -6,10 +6,7 @@ import { auth } from "../core/config/firebase/client";
 import { Offcanvas } from "react-bootstrap";
 import { CustomOverlay } from "../shared/components/Overlay";
 import { NavbarPerfilPopover } from "../shared/components/NavbarPerfilPopover";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import ModalHelper from "../shared/components/ModalHelper";
-
 
 export default function Home() {
 	const [isLogged, setIsLogged] = useState(false);
@@ -50,7 +47,7 @@ export default function Home() {
 					name="description"
 					content="De amigos dos animais, para amigos dos animais."
 				/>
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 
 			<main className="fullHeight">

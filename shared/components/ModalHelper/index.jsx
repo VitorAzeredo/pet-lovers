@@ -22,9 +22,8 @@ export default function ModalHelper(){
                             className="bg-light"
                         >
                             <Modal.Title>
-                                Ola, Precisa
-                                de ajuda?
-                                Que tal assistir nosso tutorial sobre essa tela.
+                                Ola, Precisa de ajuda?
+                                Que tal assistir nosso tutorial sobre a PetLovers.
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
