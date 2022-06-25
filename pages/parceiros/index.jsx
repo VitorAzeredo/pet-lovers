@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Base from "../../shared/layout/Base";
+import ModalHelper from "../../shared/components/ModalHelper"
 
 About.getLayout = function getLayout(page) {
 	return <Base pageTitle="Serviços">{page}</Base>;
@@ -8,6 +9,7 @@ About.getLayout = function getLayout(page) {
 export default function About() {
 	return (
 		<>
+		<ModalHelper/>
 			<div className="container px-5 my-5">
 				<div className="text-center mb-5">
 					<h1 className="fw-bolder">Nossos Parceiros</h1>

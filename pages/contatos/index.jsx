@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "../../shared/components/Navbar";
 import { useState, useRef, useEffect } from "react";
+import ModalHelper from "../../shared/components/ModalHelper";
 
 export default function About() {
 	const [lottie, setLottie] = useState(null);
@@ -32,6 +33,7 @@ export default function About() {
 			<main className="flex-shrink-0">
 				<section className="py-4 ps-5 pe-5">
 				<Navbar />
+                <ModalHelper/>
                 <div className="container">
                     <div className="rounded-2 py-2 px-2 px-md-2 mb-2">
                         <div className="text-center mb-3 mt-2">

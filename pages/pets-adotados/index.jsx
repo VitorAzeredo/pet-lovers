@@ -113,7 +113,7 @@ export default function Adoption({ data }) {
 			)}
 			{!data?.length && (
 				<div className="row text-center mt-4">
-					<h2>Por enquanto não encontramos amigos adotados!</h2>
+					<h2>Por enquanto não encontramos amiguinhos adotados!</h2>
 					<div
 						style={{ maxWidth: 700 }}
 						className="w-75 ms-auto me-auto"

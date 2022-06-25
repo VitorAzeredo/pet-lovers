@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Base from "../../shared/layout/Base";
+import ModalHelper from "../../shared/components/ModalHelper"
 
 About.getLayout = function getLayout(page) {
 	return <Base pageTitle="Artigos">{page}</Base>;
@@ -8,6 +9,7 @@ About.getLayout = function getLayout(page) {
 export default function About() {
 	return (
 		<>
+		<ModalHelper/>
 			<div className="container px-2">
 				<h1 className="row justify-content-center py-4">
 					Artigos que talvés você goste

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Base from "../../shared/layout/Base";
+import ModalHelper from "../../shared/components/ModalHelper";
 
 About.getLayout = function getLayout(page) {
 	return <Base pageTitle="Sobre">{page}</Base>;
@@ -65,6 +66,7 @@ export default function About() {
 						</p>
 					</div>
 				</div>
+				<ModalHelper/>
 				<div className="col-6 d-none d-lg-block">
 					<div className="my-1">
 						<div

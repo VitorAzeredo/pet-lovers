@@ -133,6 +133,10 @@ export default function Support({ data }) {
 		setShow(true);
 	};
 
+	const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => setShowModal(false);
+	const handleShowModal = () => setShowModal(true);
+
 	return (
 		<>
 			<div className="row mt-4">
@@ -172,12 +176,44 @@ export default function Support({ data }) {
 						options={citiesStatic}
 					/>
 				</div>
+				<div className="col-8">
+                	    <Link href="#" passHref>
+                	        <button onClick={handleShowModal} type="button" className="btn btn-dark rounded" >
+                	        <i className="bi bi-question-octagon"></i>
+                	        </button>
+                	    </Link>
+                	    <Modal show={showModal} onHide={handleCloseModal} >
+                	        <Modal.Header
+                	            closeButton
+                	            className="bg-light"
+                	        >
+                	            <Modal.Title>
+                	                Ola, Precisa de ajuda?
+                	                Que tal assistir nosso tutorial sobre a PetLovers.
+                	            </Modal.Title>
+                	        </Modal.Header>
+                	        <Modal.Body>
+                	            <iframe width="466" height="315" src="https://www.youtube.com/embed/ii-KRRt13o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                	            </iframe>
+                	        </Modal.Body>
+                	        <Modal.Footer>
+                	            <Button
+                	                variant="dark"
+                	                onClick={
+                	                    handleCloseModal
+                	                }
+                	            >
+                	                Fechar
+                	            </Button>
+                	        </Modal.Footer>
+                	    </Modal>
+                	</div>
 			</div>
 			{copyData?.length > 0 && (
 				<div className="row mt-4">
 					{copyData.map((petMapped) => (
 						<div className="col-sm-3 mb-3" key={petMapped.petId}>
-						<div className="card shadow border-info">
+						<div className="card shadow border-warning">
 							<div className="card-body">
 								<h5 className="card-title">
 									{petMapped.name}

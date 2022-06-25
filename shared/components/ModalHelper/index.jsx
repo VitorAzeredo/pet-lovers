@@ -9,11 +9,11 @@ export default function ModalHelper(){
 	const handleShowModal = () => setShowModal(true);
     return(
         <>  
-            <div className="row p-0 position-absolute" style={{bottom:"1em"}}>
+            <div className="row p-0 position-fixed" style={{bottom:"1em"}}>
                 <div className="col-12 p-0">
                     <Link href="#" passHref>
-                        <button onClick={handleShowModal} type="button" className="btn btn-info rounded" >
-                                Precisa de Ajuda <i className="bi bi-question-lg"></i>
+                        <button onClick={handleShowModal} type="button" className="btn btn-dark rounded" >
+                        <i className="bi bi-question-octagon"></i>
                         </button>
                     </Link>
                     <Modal show={showModal} onHide={handleCloseModal} >
