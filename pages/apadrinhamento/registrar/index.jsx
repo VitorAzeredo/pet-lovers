@@ -5,6 +5,8 @@ import Image from "next/image";
 import { auth } from "../../../core/config/firebase/client";
 import { useRouter } from "next/router";
 import Base from "../../../shared/layout/Base";
+import { states } from "../../../shared/static/states";
+import { cities, allCities } from "../../../shared/static/cities";
 
 const sendAnimalData = async (animalData) => {
 	const formData = new FormData();
@@ -53,6 +55,8 @@ export default function Donation() {
 	const [load, setLoad] = useState(false);
 	const router = useRouter();
 	const [lottie, setLottie] = useState(null);
+	const [isStateSelected, setIsStateSelected] = useState("");
+	const [isCityDisabled, setIsCityDisabled] = useState(true);
 	const ref = useRef(null);
 
 	useEffect(() => {
@@ -66,7 +70,7 @@ export default function Donation() {
 				renderer: "svg",
 				loop: true,
 				autoplay: true,
-				path: "/assets/dog-carregando.json",
+				path: "/assets/dog-walking.json",
 			});
 
 			return () => animation.destroy();
@@ -75,6 +79,13 @@ export default function Donation() {
 
 	useEffect(() => {
 		const subscription = watch((values) => {
+			if (values.state.length === 0) {
+				setIsStateSelected("");
+				setIsCityDisabled(true);
+			} else {
+				setIsStateSelected(values.state);
+				setIsCityDisabled(false);
+			}
 			setImages([]);
 			readmultifiles(values.files);
 		});
@@ -182,17 +193,20 @@ export default function Donation() {
 							<select
 								id="inputState"
 								className="form-select"
-								defaultValue="SP"
+								defaultValue=""
 								{...register("state", {
 									required: true,
 								})}
 							>
-								<option selected value="SP">
-									Selecionar...
-								</option>
-								<option value="SP">São Paulo</option>
-								<option value="RJ">Rio de Janeiro</option>
-								<option value="RF">Recife</option>
+								<option value="">Selecionar...</option>
+								{states?.map((state) => (
+									<option
+										key={state.value}
+										value={state.value}
+									>
+										{state.label}
+									</option>
+								))}
 							</select>
 							{errors.state && (
 								<span className="text-danger">
@@ -204,17 +218,34 @@ export default function Donation() {
 							<label htmlFor="inputCity" className="form-label">
 								Cidade
 							</label>
-							<input
-								type="text"
-								className="form-control"
+							<select
 								id="inputCity"
-								placeholder="Ex: Angra dos Reis"
+								className="form-select"
 								defaultValue=""
+								disabled={isCityDisabled}
 								{...register("city", {
 									required: true,
 								})}
-							/>
-							{errors.city && (
+							>
+								<option value="">Selecionar...</option>
+								{isStateSelected.length > 0 ? (
+									cities[isStateSelected]?.map(
+										(city, index) => (
+											<option
+												key={city.value.concat(
+													String(index)
+												)}
+												value={city.value}
+											>
+												{city.label}
+											</option>
+										)
+									)
+								) : (
+									<option value="">Selecionar...</option>
+								)}
+							</select>
+							{errors.state && (
 								<span className="text-danger">
 									Este campo é obrigatório
 								</span>
@@ -303,7 +334,7 @@ export default function Donation() {
 									type="button"
 									className="btn btn-dark ms-2"
 								>
-									Voltar para Adoção
+									Voltar para Apadrinhamento
 								</button>
 							</Link>
 						</div>

@@ -207,7 +207,7 @@ export default function Adoption() {
 													disabled
 													className="btn btn-success ps-3 pe-3"
 												>
-													Adotado
+													Meta alcançada!
 												</button>
 											) : (
 												<button
@@ -425,7 +425,7 @@ export default function Adoption() {
 																<option
 																	value={true}
 																>
-																	Adotado
+																	Meta alcançada!
 																</option>
 															</select>
 														</div>

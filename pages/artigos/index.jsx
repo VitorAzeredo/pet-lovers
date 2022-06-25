@@ -127,8 +127,7 @@ export default function About() {
 												</a>
 											</Link>
 											<p className="text-muted mb-4">
-												Adorariamos ouvir suas criticas
-												e sugestões!
+												Sugestões de artigos, envie para nossa equipe!
 												<br />
 												<Link href="#!">
 													<a>

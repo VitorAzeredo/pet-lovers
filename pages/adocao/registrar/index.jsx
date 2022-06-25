@@ -214,7 +214,7 @@ export default function Donation() {
 						</div>
 						<div className="col-6">
 							<label htmlFor="inputCity" className="form-label">
-								City
+								Cidade
 							</label>
 							<select
 								id="inputCity"

@@ -186,6 +186,10 @@ export default function Adoption({ data }) {
 							</div>
 						</div>
 					)}
+					<h5>Experiência do usuário: </h5>
+					<p className="card-text mt-2 text-break">
+						{pet.experience}
+					</p>
 				</Modal.Body>
 
 				<Modal.Footer>
