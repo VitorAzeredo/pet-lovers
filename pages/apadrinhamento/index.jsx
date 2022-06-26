@@ -209,8 +209,8 @@ export default function Support({ data }) {
 			</div>
 			{copyData?.length > 0 && (
 				<div className="row mt-4">
-					{copyData.map((petMapped) => (
-						<div className="col-sm-3 mb-3" key={petMapped.petId}>
+					{copyData.map((petMapped) => {
+						return petMapped.adopted === false ? (<div className="col-sm-3 mb-3" key={petMapped.petId}>
 						<div className="card shadow border-warning">
 							<div className="card-body">
 								<h5 className="card-title">
@@ -243,11 +243,11 @@ export default function Support({ data }) {
 									</div>
 								</div>
 							</div>
-						</div>
-					))}
+						</div>) : null
+					})}
 				</div>
 			)}
-			{!copyData?.length && (
+			{!copyData?.length < 1 && (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para apadrinhar</h2>
 					<div
@@ -316,7 +316,7 @@ export default function Support({ data }) {
 						<p>{pet.history}</p>
 					</div>
 					<div className="my-2">
-						<h4>Contatos para adoção</h4>
+						<h4>Contatos para apadrinhamento</h4>
 						<p className="m-0">{pet.ownerName}</p>
 						<p className="m-0">{pet.ownerEmail}</p>
 						<p className="m-0">

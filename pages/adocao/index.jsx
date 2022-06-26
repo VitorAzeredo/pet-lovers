@@ -247,7 +247,7 @@ export default function Adoption({ data }) {
 					})}
 				</div>
 			)}
-			{!copyData?.length && (
+			{!copyData?.length < 1 && (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para adotar</h2>
 					<div

@@ -12,7 +12,7 @@ export default function About() {
 		<ModalHelper/>
 			<div className="container px-2">
 				<h1 className="row justify-content-center py-4">
-					Artigos que talvés você goste
+					Artigos que talvez você goste
 				</h1>
 				<div className="card border-0 shadow rounded-3 overflow-hidden">
 					<div className="card-body p-0">

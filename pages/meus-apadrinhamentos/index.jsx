@@ -24,10 +24,10 @@ export default function Adoption() {
 		}
 	};
 
-	useEffect(() => {
-		const subscription = watch(({ adopted }) => setCheckIsAdopted(adopted));
-		return () => subscription.unsubscribe();
-	}, [watch]);
+	// useEffect(() => {
+	// 	const subscription = watch(({ adopted }) => setCheckIsAdopted(adopted));
+	// 	return () => subscription.unsubscribe();
+	// }, [watch]);
 
 	const handleDeletePet = (petId) => {
 		deletePet(petId);
