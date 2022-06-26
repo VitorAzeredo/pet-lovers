@@ -254,17 +254,12 @@ export default function Donation() {
 								Cep
 							</label>
 							<input
-								type="number"
+								type="tel"
 								className="form-control"
 								id="inputCep"
 								placeholder="Ex: 00000000"
-								defaultValue=""
-								minlength="8" 
-								maxlength="8" 
 								{...register("cep", {
 									required: true,
-									minLength: 8,
-									maxLength: 8
 								})}
 							/>
 							{errors.cep && (

@@ -48,6 +48,11 @@ export default function Adoption({ data }) {
 		setFilters(filtersCopy);
 	};
 
+	const verifyAnyPet = () => {
+		const existPetForShow = copyData.filter((pet) => pet.adopted === false);
+		return existPetForShow.length > 0;
+	};
+
 	useEffect(() => {
 		if (filters[0].length === 0 && filters[1].length === 0) {
 			return setCopyData(data);
@@ -132,7 +137,7 @@ export default function Adoption({ data }) {
 	};
 
 	const [showModal, setShowModal] = useState(false);
-    const handleCloseModal = () => setShowModal(false);
+	const handleCloseModal = () => setShowModal(false);
 	const handleShowModal = () => setShowModal(true);
 
 	return (
@@ -174,80 +179,90 @@ export default function Adoption({ data }) {
 						options={citiesStatic}
 					/>
 				</div>
-                	<div className="col-8">
-                	    <Link href="#" passHref>
-                	        <button onClick={handleShowModal} type="button" className="btn btn-dark rounded" >
-                	        <i className="bi bi-question-octagon"></i>
-                	        </button>
-                	    </Link>
-                	    <Modal show={showModal} onHide={handleCloseModal} >
-                	        <Modal.Header
-                	            closeButton
-                	            className="bg-light"
-                	        >
-                	            <Modal.Title>
-                	                Ola, Precisa de ajuda?
-                	                Que tal assistir nosso tutorial sobre a PetLovers.
-                	            </Modal.Title>
-                	        </Modal.Header>
-                	        <Modal.Body>
-                	            <iframe width="466" height="315" src="https://www.youtube.com/embed/ii-KRRt13o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                	            </iframe>
-                	        </Modal.Body>
-                	        <Modal.Footer>
-                	            <Button
-                	                variant="dark"
-                	                onClick={
-                	                    handleCloseModal
-                	                }
-                	            >
-                	                Fechar
-                	            </Button>
-                	        </Modal.Footer>
-                	    </Modal>
-                	</div>
+				<div className="col-8">
+					<Link href="#" passHref>
+						<button
+							onClick={handleShowModal}
+							type="button"
+							className="btn btn-dark rounded"
+						>
+							<i className="bi bi-question-octagon"></i>
+						</button>
+					</Link>
+					<Modal show={showModal} onHide={handleCloseModal}>
+						<Modal.Header closeButton className="bg-light">
+							<Modal.Title>
+								Ola, Precisa de ajuda? Que tal assistir nosso
+								tutorial sobre a PetLovers.
+							</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							<iframe
+								width="466"
+								height="315"
+								src="https://www.youtube.com/embed/ii-KRRt13o4"
+								title="YouTube video player"
+								frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+							></iframe>
+						</Modal.Body>
+						<Modal.Footer>
+							<Button variant="dark" onClick={handleCloseModal}>
+								Fechar
+							</Button>
+						</Modal.Footer>
+					</Modal>
+				</div>
 			</div>
 			{copyData?.length > 0 && (
 				<div className="row mt-4">
 					{copyData.map((petMapped) => {
-						return petMapped.adopted === false ? (<div className="col-sm-3 mb-3" key={petMapped.petId}>
-						<div className="card shadow border-info">
-							<div className="card-body">
-								<h5 className="card-title">
-									{petMapped.name}
-								</h5>
-								<Image
-									onClick={() => handleShow(petMapped)}
-									layout="responsive"
-									className="rounded cursorP img-fluid"
-									src={petMapped.files[0]}
-									alt="Vercel Logo"
-									priority={true}
-									width={300}
-									height={250}
-								/>
-								<p className="card-text mt-2">
-									{petMapped.description}
-								</p>
-								<div className="d-grid">
-									<button
-										onClick={() =>
-											handleShow(petMapped)
-										}
-										type="button"
-										className="btn btn-info"
-									>
-										Detalhes
-										<i className="ms-2 bi bi-balloon-heart-fill"></i>
-									</button>
+						return petMapped.adopted === false ? (
+							<div
+								className="col-sm-3 mb-3"
+								key={petMapped.petId}
+							>
+								<div className="card shadow border-info">
+									<div className="card-body">
+										<h5 className="card-title">
+											{petMapped.name}
+										</h5>
+										<Image
+											onClick={() =>
+												handleShow(petMapped)
+											}
+											layout="responsive"
+											className="rounded cursorP img-fluid"
+											src={petMapped.files[0]}
+											alt="Vercel Logo"
+											priority={true}
+											width={300}
+											height={250}
+										/>
+										<p className="card-text mt-2">
+											{petMapped.description}
+										</p>
+										<div className="d-grid">
+											<button
+												onClick={() =>
+													handleShow(petMapped)
+												}
+												type="button"
+												className="btn btn-info"
+											>
+												Detalhes
+												<i className="ms-2 bi bi-balloon-heart-fill"></i>
+											</button>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>) : null
+						) : null;
 					})}
 				</div>
 			)}
-			{!copyData?.length < 1 && (
+			{verifyAnyPet() ? null : (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para adotar</h2>
 					<div
