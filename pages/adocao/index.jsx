@@ -247,7 +247,7 @@ export default function Adoption({ data }) {
 					})}
 				</div>
 			)}
-			{!copyData?.length < 1 && (
+			{copyData?.length === 0 ? (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para adotar</h2>
 					<div
@@ -256,7 +256,7 @@ export default function Adoption({ data }) {
 						ref={ref}
 					></div>
 				</div>
-			)}
+			): null }
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 					<Modal.Title>Detalhes do pet</Modal.Title>
