@@ -9,9 +9,7 @@ import { cities, allCities } from "../../shared/static/cities";
 import { states } from "../../shared/static/states";
 
 export async function getServerSideProps() {
-	const res = await fetch(
-		"http://localhost:3000/api/busca-apadrinhado/lista-pets"
-	);
+	const res = await fetch("http://localhost:3000/api/busca-apadrinhado/lista-pets");
 	const data = await res.json();
 	return { props: { data } };
 }
@@ -249,7 +247,7 @@ export default function Support({ data }) {
 					))}
 				</div>
 			)}
-			{!data?.length && (
+			{!copyData?.length && (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para apadrinhar</h2>
 					<div

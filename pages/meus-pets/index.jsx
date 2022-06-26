@@ -475,7 +475,7 @@ export default function Adoption() {
 																<option
 																	value={true}
 																>
-																	Adotado
+																	Adotado!
 																</option>
 															</select>
 														</div>

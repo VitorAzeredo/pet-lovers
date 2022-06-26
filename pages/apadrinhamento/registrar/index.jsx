@@ -312,7 +312,7 @@ export default function Donation() {
 										required: "Este campo é obrigatório",
 										validate: (value) => {
 											if (value.length < 2) {
-												return "Selecione pelo menos 2 arquivo";
+												return "Selecione pelo menos 2 arquivos";
 											}
 											return undefined;
 										},

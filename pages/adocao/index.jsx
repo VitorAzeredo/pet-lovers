@@ -209,42 +209,42 @@ export default function Adoption({ data }) {
 			</div>
 			{copyData?.length > 0 && (
 				<div className="row mt-4">
-					{copyData.map((petMapped) => (
-						<div className="col-sm-3 mb-3" key={petMapped.petId}>
-							<div className="card shadow border-info">
-								<div className="card-body">
-									<h5 className="card-title">
-										{petMapped.name}
-									</h5>
-									<Image
-										onClick={() => handleShow(petMapped)}
-										layout="responsive"
-										className="rounded cursorP img-fluid"
-										src={petMapped.files[0]}
-										alt="Vercel Logo"
-										priority={true}
-										width={300}
-										height={250}
-									/>
-									<p className="card-text mt-2">
-										{petMapped.description}
-									</p>
-									<div className="d-grid">
-										<button
-											onClick={() =>
-												handleShow(petMapped)
-											}
-											type="button"
-											className="btn btn-info"
-										>
-											Detalhes
-											<i className="ms-2 bi bi-balloon-heart-fill"></i>
-										</button>
-									</div>
+					{copyData.map((petMapped) => {
+						return petMapped.adopted === false ? (<div className="col-sm-3 mb-3" key={petMapped.petId}>
+						<div className="card shadow border-info">
+							<div className="card-body">
+								<h5 className="card-title">
+									{petMapped.name}
+								</h5>
+								<Image
+									onClick={() => handleShow(petMapped)}
+									layout="responsive"
+									className="rounded cursorP img-fluid"
+									src={petMapped.files[0]}
+									alt="Vercel Logo"
+									priority={true}
+									width={300}
+									height={250}
+								/>
+								<p className="card-text mt-2">
+									{petMapped.description}
+								</p>
+								<div className="d-grid">
+									<button
+										onClick={() =>
+											handleShow(petMapped)
+										}
+										type="button"
+										className="btn btn-info"
+									>
+										Detalhes
+										<i className="ms-2 bi bi-balloon-heart-fill"></i>
+									</button>
 								</div>
 							</div>
 						</div>
-					))}
+					</div>) : null
+					})}
 				</div>
 			)}
 			{!copyData?.length && (

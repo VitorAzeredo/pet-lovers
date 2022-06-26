@@ -10,10 +10,26 @@ const handler = nc({
 		res.status(404).end("Page is not found");
 	},
 }).get(async (req, res) => {
+	const { authorization } = req.headers;
+	let uid;
+
+	try {
+		const decodedToken = await admin.auth().verifyIdToken(authorization);
+		uid = decodedToken.uid;
+	} catch (error) {
+		return res.status(401).json([
+			{
+				name: "instance.auth.error",
+				userMessage: "Token expirado ou inválido",
+			}
+		]);
+	}
+
 	try {
 		admin
 			.firestore()
 			.collection("protections")
+			.where("owner", "==", uid)
 			.get()
 			.then((snapshot) => {
 				const pets = [];

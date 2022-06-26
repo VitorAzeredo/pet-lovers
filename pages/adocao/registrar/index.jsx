@@ -259,8 +259,12 @@ export default function Donation() {
 								id="inputCep"
 								placeholder="Ex: 00000000"
 								defaultValue=""
+								minlength="8" 
+								maxlength="8" 
 								{...register("cep", {
 									required: true,
+									minLength: 8,
+									maxLength: 8
 								})}
 							/>
 							{errors.cep && (
@@ -310,7 +314,7 @@ export default function Donation() {
 										required: "Este campo é obrigatório",
 										validate: (value) => {
 											if (value.length < 2) {
-												return "Selecione pelo menos 2 arquivo";
+												return "Selecione pelo menos 2 arquivos";
 											}
 											return undefined;
 										},

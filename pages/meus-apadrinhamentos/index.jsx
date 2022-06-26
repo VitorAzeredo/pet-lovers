@@ -9,7 +9,8 @@ import { useForm } from "react-hook-form";
 
 // Veridica se o usuário está logado e habilita a opção de cadastrar um novo pet, e editar.
 export default function Adoption() {
-	const { register, setValue, getValues } = useForm();
+	const { register, setValue, getValues, watch } = useForm();
+	const [setCheckIsAdopted] = useState(false);
 	const [isSignin, setIsSignin] = useState(false);
 	const [data, setData] = useState(null);
 	const [show, setShow] = useState(false);
@@ -22,6 +23,11 @@ export default function Adoption() {
 			setValue(key, value);
 		}
 	};
+
+	useEffect(() => {
+		const subscription = watch(({ adopted }) => setCheckIsAdopted(adopted));
+		return () => subscription.unsubscribe();
+	}, [watch]);
 
 	const handleDeletePet = (petId) => {
 		deletePet(petId);
@@ -67,8 +73,15 @@ export default function Adoption() {
 	};
 
 	const sendUpdatePetAndCloseModal = async () => {
-		const { name, description, state, city, cep, history, adopted, petId } =
-			getValues();
+		const { name, 
+				description, 
+				state, 
+				city, 
+				cep, 
+				history, 
+				adopted, 
+				petId 
+			} = getValues();
 
 		const token = await getUserToken();
 		await fetch("/api/atualizar-apadrinhamento/atualiza-apadrinhamento", {
@@ -95,11 +108,12 @@ export default function Adoption() {
 		handleClose();
 	};
 
-	useEffect(() => {
+	useEffect(() =>  {
 		return auth.onAuthStateChanged((user) => {
 			if (user) {
 				setIsSignin(true);
 				getUserToken().then((userToken) => {
+					console.log(userToken);
 					fetch("api/buscar-meus-apadrinhamentos/lista-pets", {
 						method: "GET",
 						headers: {
@@ -241,7 +255,7 @@ export default function Adoption() {
 													disabled
 													className="btn btn-success ps-3 pe-3"
 												>
-													Meta alcançada!
+													Apadrinhado
 												</button>
 											) : (
 												<button
@@ -459,7 +473,7 @@ export default function Adoption() {
 																<option
 																	value={true}
 																>
-																	Meta alcançada!
+																	Apadrinhado
 																</option>
 															</select>
 														</div>
