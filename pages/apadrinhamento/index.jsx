@@ -48,6 +48,11 @@ export default function Support({ data }) {
 		setFilters(filtersCopy);
 	};
 
+	const verifyAnyPet = () => {
+		const existPetForShow = copyData.filter((pet) => pet.adopted === false);
+		return existPetForShow.length > 0;
+	};
+
 	useEffect(() => {
 		if (filters[0].length === 0 && filters[1].length === 0) {
 			return setCopyData(data);
@@ -191,8 +196,7 @@ export default function Support({ data }) {
                 	            </Modal.Title>
                 	        </Modal.Header>
                 	        <Modal.Body>
-                	            <iframe width="466" height="315" src="https://www.youtube.com/embed/ii-KRRt13o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                	            </iframe>
+							<iframe width="466" height="315" src="https://www.youtube.com/embed/lX1HmDTFbnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 	        </Modal.Body>
                 	        <Modal.Footer>
                 	            <Button
@@ -247,7 +251,7 @@ export default function Support({ data }) {
 					})}
 				</div>
 			)}
-			{!copyData?.length < 1 && (
+			{verifyAnyPet() ? null : (
 				<div className="row text-center mt-4">
 					<h2>Por enquanto não encontramos amigos para apadrinhar</h2>
 					<div
@@ -313,7 +317,7 @@ export default function Support({ data }) {
 					</div>
 					<div>
 						<h4 className="m-0">História do pet</h4>
-						<p>{pet.history}</p>
+						<p className="text-break">{pet.history}</p>
 					</div>
 					<div className="my-2">
 						<h4>Contatos para apadrinhamento</h4>

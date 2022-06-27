@@ -153,6 +153,7 @@ export default function Donation() {
 								id="inputName4"
 								placeholder="Ex: Doggo"
 								defaultValue=""
+								maxLength={15}
 								{...register("name", {
 									required: true,
 								})}
@@ -176,6 +177,7 @@ export default function Donation() {
 								id="inputDescription"
 								placeholder="Ex: Cachorro | Fêmea | Adulto | Porte pequeno"
 								defaultValue=""
+								maxLength={30}
 								{...register("description", {
 									required: true,
 								})}
@@ -256,11 +258,12 @@ export default function Donation() {
 								Cep
 							</label>
 							<input
-								type="number"
+								type="tel"
 								className="form-control"
 								id="inputCep"
 								placeholder="Ex: 00000000"
 								defaultValue=""
+								maxLength={8}
 								{...register("cep", {
 									required: true,
 								})}
@@ -285,6 +288,7 @@ export default function Donation() {
 								id="inputHistory"
 								placeholder="Conte a história do seu bichinho"
 								defaultValue=""
+								maxLength={65}
 								{...register("history", {
 									required: true,
 								})}

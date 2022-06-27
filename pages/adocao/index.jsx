@@ -197,15 +197,7 @@ export default function Adoption({ data }) {
 							</Modal.Title>
 						</Modal.Header>
 						<Modal.Body>
-							<iframe
-								width="466"
-								height="315"
-								src="https://www.youtube.com/embed/_EjzoFEskL4"
-								title="YouTube video player"
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-							></iframe>
+						<iframe width="466" height="315" src="https://www.youtube.com/embed/KbMz_iO1Fbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</Modal.Body>
 						<Modal.Footer>
 							<Button variant="dark" onClick={handleCloseModal}>
@@ -328,7 +320,7 @@ export default function Adoption({ data }) {
 					</div>
 					<div>
 						<h4 className="m-0">História do pet</h4>
-						<p>{pet.history}</p>
+						<p className="text-break">{pet.history}</p>
 					</div>
 					<div className="my-2">
 						<h4>Contatos para adoção</h4>

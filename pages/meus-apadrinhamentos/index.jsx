@@ -24,11 +24,6 @@ export default function Adoption() {
 		}
 	};
 
-	// useEffect(() => {
-	// 	const subscription = watch(({ adopted }) => setCheckIsAdopted(adopted));
-	// 	return () => subscription.unsubscribe();
-	// }, [watch]);
-
 	const handleDeletePet = (petId) => {
 		deletePet(petId);
 		setShowDelete((currentState) => !currentState);
@@ -171,8 +166,7 @@ export default function Adoption() {
                 	    		        </Modal.Title>
                 	    		    </Modal.Header>
                 	    		    <Modal.Body>
-                	    		        <iframe width="466" height="315" src="https://www.youtube.com/embed/ii-KRRt13o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                	    		        </iframe>
+									<iframe width="466" height="315" src="https://www.youtube.com/embed/lX1HmDTFbnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 	    		    </Modal.Body>
                 	    		    <Modal.Footer>
                 	    		        <Button
