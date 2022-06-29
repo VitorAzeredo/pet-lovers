@@ -197,14 +197,14 @@ export default function Adoption() {
 						<table className="table align-middle">
 							<thead>
 								<tr className="table-dark">
-									<th className="bi bi-file-person"> Nome</th>
+									<th className="bi bi-file-person">Nome</th>
 									<th className="bi bi-journal">
 										{" "}
 										Descrição
 									</th>
-									<th className="bi bi-map"> Estado</th>
-									<th className="bi bi-geo-alt"> Cidade</th>
-									<th className="bi bi-geo"> CEP</th>
+									<th className="bi bi-map">Estado</th>
+									<th className="bi bi-geo-alt">Cidade</th>
+									<th className="bi bi-geo">CEP</th>
 									<th className="bi bi-book">
 										{" "}
 										Historia do Pet
