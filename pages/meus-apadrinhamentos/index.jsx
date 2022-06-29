@@ -296,6 +296,7 @@ export default function Adoption() {
 																className="form-control"
 																id="name"
 																placeholder="Ex: Doggo"
+																maxLength={15}
 																{...register(
 																	"name",
 																	{
@@ -318,6 +319,7 @@ export default function Adoption() {
 																className="form-control"
 																id="inputDescription"
 																placeholder="Ex: Cachorro | Fêmea | Adulto | Porte pequeno"
+																maxLength={30}
 																{...register(
 																	"description",
 																	{
@@ -395,6 +397,7 @@ export default function Adoption() {
 																id="inputCep"
 																placeholder="Ex: 00000000"
 																defaultValue=""
+																maxLength={8}
 																{...register(
 																	"cep",
 																	{
@@ -418,6 +421,7 @@ export default function Adoption() {
 																id="inputHistory"
 																placeholder="Conte a história do seu bichinho"
 																defaultValue=""
+																maxLength={65}
 																{...register(
 																	"history",
 																	{

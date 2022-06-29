@@ -7,7 +7,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 
-// Veridica se o usuário está logado e habilita a opção de cadastrar um novo pet, e editar.
 export default function Adoption() {
 	const { register, setValue, getValues, watch } = useForm();
 	const [checkIsAdopted, setCheckIsAdopted] = useState(false);
@@ -303,6 +302,7 @@ export default function Adoption() {
 																className="form-control"
 																id="name"
 																placeholder="Ex: Doggo"
+																maxLength={15}
 																{...register(
 																	"name",
 																	{
@@ -325,6 +325,7 @@ export default function Adoption() {
 																className="form-control"
 																id="inputDescription"
 																placeholder="Ex: Cachorro | Fêmea | Adulto | Porte pequeno"
+																maxLength={30}
 																{...register(
 																	"description",
 																	{
@@ -363,8 +364,11 @@ export default function Adoption() {
 																	Rio de
 																	Janeiro
 																</option>
-																<option value="RC">
-																	Recife
+																<option value="ES">
+																	Espirito Santo
+																</option>
+																<option value="MG">
+																	Minas Gerais
 																</option>
 															</select>
 														</div>
@@ -397,11 +401,12 @@ export default function Adoption() {
 																Cep
 															</label>
 															<input
-																type="number"
+																type="tel"
 																className="form-control"
 																id="inputCep"
 																placeholder="Ex: 00000000"
 																defaultValue=""
+																maxLength={8}
 																{...register(
 																	"cep",
 																	{
@@ -425,6 +430,7 @@ export default function Adoption() {
 																id="inputHistory"
 																placeholder="Conte a história do seu bichinho"
 																defaultValue=""
+																maxLength={65}
 																{...register(
 																	"history",
 																	{
@@ -493,6 +499,7 @@ export default function Adoption() {
 																	id="inputHistory"
 																	placeholder="Conte um pouco para nós sobre sua experiência na PetLovers"
 																	defaultValue=""
+																	maxLength={65}
 																	{...register(
 																		"experience",
 																		{

@@ -6,7 +6,7 @@ import { auth } from "../../../core/config/firebase/client";
 import { useRouter } from "next/router";
 import Base from "../../../shared/layout/Base";
 import { states } from "../../../shared/static/states";
-import { cities, allCities } from "../../../shared/static/cities";
+import { cities } from "../../../shared/static/cities";
 
 const sendAnimalData = async (animalData) => {
 	const formData = new FormData();
@@ -108,10 +108,8 @@ export default function Donation() {
 			if (index >= files.length) return;
 			const file = files[index];
 			reader.onload = function (e) {
-				// get file content
 				const bin = e.target.result;
 				setImages((state) => [...state, { index, bin }]);
-				// do sth with bin
 				readFile(index + 1);
 			};
 			reader.readAsDataURL(file);

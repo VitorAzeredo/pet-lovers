@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Navbar from "../../../shared/components/Navbar";
 
 export default function About() {
@@ -19,6 +20,7 @@ export default function About() {
                                 <div className="ms-3">
                                     <div className="fw-bold">Ana Letícia Poletto</div>
                                     <div className="text-muted mb-2">Médica - Veterinária</div>
+                                    <Link href="/artigos">
                                         <a>
                                             <button
                                                 type="button"
@@ -27,6 +29,7 @@ export default function About() {
                                                 Voltar aos artigos?
                                             </button>
                                         </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -63,31 +66,33 @@ export default function About() {
 
                                     <p className="fs-5 mb-4">É importante pesar o filhote durante a primeira consulta e acompanhar com o tempo para saber se há perda ou ganho de peso. Perguntar ao médico-veterinário qual o peso ideal do filhote é uma ótima opção para ter mais controle sobre sua saúde, evitando que desenvolva doenças como obesidade ou desnutrição.</p>
 
-                                    <h4 className="fw-bolder mb-4 mt-5">1 &middot; Cães de faro</h4>
+                                    <h4 className="fw-bolder mb-4 mt-5">1. Cães de faro</h4>
                                     <p className="fs-5 mb-4">Pela denominação do objetivo de seu trabalho, já podemos saber que esses animais precisam ter um faro muito aguçado, pois são utilizados para encontrar pessoas soterradas, explosivos e todo tipo de material, inclusive entorpecentes. Eles precisam de muito treino e contato com esses odores, para só então seguir com a busca. Algumas raças são muito usadas nesses trabalhos, como o Golden Retriever, o Labrador Retriever e o Pastor Alemão e suas variações, por demonstrarem características específicas, como forte temperamento e faro aguçado. O cão de faro utilizado para encontrar drogas, além de todas as características gerais, precisa ser brincalhão, ágil e flexível para poder escalar e entrar em lugares de difícil acesso.</p>
 
-                                    <h4 className="fw-bolder mb-4">3 &middot;  Cães de Resgate e Salvamento</h4>
+                                    <h4 className="fw-bolder mb-4">2. Cães de Resgate e Salvamento</h4>
                                     <p className="fs-5 mb-4">A função de busca e salvamento surgiu para encontrar e identificar pessoas perdidas ou fugitivos. Antigamente, durante as guerras, os cães eram treinados para encontrar os feridos e prover suporte com kits acoplados a eles até que alguém pudesse chegar com apoio. Pouco tempo depois, os cães eram acoplados a trenós e realizavam os resgates de pilotos que se perdiam em meio a neve. Essa tarefa é feita até hoje.</p>
 
                                     <p className="fs-5 mb-4">Os cães utilizados pelos bombeiros seguem uma linha muito forte em relação ao olfato e audição. São designados a encontrar seres vivos ou não, em meio a matas, áreas soterradas, lama, água etc. As raças escolhidas para essa função normalmente são o Labrador Retriever e o Bloodhound.</p>
 
-                                    <h2 className="fw-bolder mb-4 mt-5">4 &middot;  Cães de terapia</h2>
+                                    <h4 className="fw-bolder mb-4 mt-5">3. Cães de terapia</h4>
                                     <p className="fs-5 mb-4">Hoje em dia, sabe-se que os cães possuem um imenso potencial terapêutico, de maneira que apenas a presença deles já alivia o estresse e nos deixa mais calmos. Alguns cães são treinados para oferecer apoio emocional a pessoas doentes, crianças com alguma disfunção ou autismo e idosos, e até entram no plano terapêutico de alguns pacientes, os visitando nos hospitais. Para esta função pode ser utilizado qualquer cão que tenha o temperamento ideal, boa socialização e o correto treinamento.</p>
 
-                                    <h2 className="fw-bolder mb-4 mt-5">5 &middot;  Cães de serviço</h2>
+                                    <h4 className="fw-bolder mb-4 mt-5">4. Cães de serviço</h4>
                                     <p className="fs-5 mb-4">Habitualmente, os cães de serviço são utilizados para orientar ou ajudar uma pessoa portadora de deficiência física ou que possua necessidades específicas. Esses cães se tornam parceiros da pessoa que o “emprega” e são essencialmente treinados para suprir a deficiência de seu tutor. A base do treinamento é identificar o problema e ajudar a superá-lo. Usando como exemplo um tutor que possua deficiência visual, o cão-guia pode auxiliá-lo a se locomover, evitando que se machuque ou entre em situações de perigo. Existem também cães de assistência a pessoas com crises convulsivas, que são treinados para identificar o início de uma crise, proteger e ajudar a evitar que se machuquem. Algumas raças comumente usadas são o Labrador Retriever e o Golden Retriever.</p>
 
                                     <p className="fs-5 mb-4">Normalmente, os cães de serviço são identificados com um colete que mostra que eles estão em horário de trabalho. É incrível pensar que esses animais têm capacidades inimagináveis e podem fazer tanto pelo ser humano. Sempre que avistar um cão, lembre-se de perguntar se ele está em serviço, pois tudo faz parte do treinamento, e uma atitude inofensiva pode desencadear algo desagradável. Por mais carismáticos que eles sejam, cães em serviço não podem ser acariciados ou alimentados, pois estão trabalhando e são muito felizes desempenhando sua função.</p>
                                 </section>
                             </article>
-                                <a>
-                                    <button
-                                        type="button"
-                                        className="btn btn-info"
-                                    >
-                                        Voltar aos artigos?
-                                    </button>
-                                </a>
+                                <Link href="/artigos">
+                                    <a>
+                                        <button
+                                            type="button"
+                                            className="btn btn-info"
+                                        >
+                                            Voltar aos artigos?
+                                        </button>
+                                    </a>
+                                </Link>
                         </div>
                     </div>
                 </div>
